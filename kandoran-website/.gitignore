@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore local test script with credentials
+scripts/test-script.js
+
+# Ignore test output directory
+scripts/test-output/
