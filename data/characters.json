@@ -28,10 +28,10 @@
     "gold": 4,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/47292/526/1581111423-129070497.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 134,
-    "games": 20,
-    "last_game": "29.03.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Brummar, Dain, Eliza, Elkas, Fenvys, Fex, Grygor, Hovas, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves"
+    "exp": 138,
+    "games": 21,
+    "last_game": "02.04.2025",
+    "buddies": "Agis, Alva, Brock, Brogar, Brummar, Cortinus, Dain, Eliza, Elkas, Fenvys, Fex, Grygor, Hovas, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves"
   },
   {
     "id": "128845831",
@@ -146,10 +146,10 @@
     "gold": 36,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/43312/984/1581111423-99425467.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 83,
-    "games": 8,
-    "last_game": "16.03.2025",
-    "buddies": "Agis, Alva, Brock, Egor, Eliza, Grygor, Janosch, Kelvyr, Klexs, Quira, Splinter, Tavas, Tralin"
+    "exp": 87,
+    "games": 9,
+    "last_game": "02.04.2025",
+    "buddies": "Agis, Alva, Brock, Cortinus, Egor, Eliza, Grygor, Janosch, Kelvyr, Klexs, Quira, Splinter, Tavas, Tralin"
   },
   {
     "id": "105970072",
@@ -398,12 +398,12 @@
     "sublcass": "Rune Knight",
     "secondary_class": "",
     "secondary_subclass": "",
-    "gold": 1.576,
+    "gold": 1.676,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/43412/704/1581111423-129502211.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 88,
-    "games": 33,
-    "last_game": "30.03.2025",
+    "exp": 92,
+    "games": 34,
+    "last_game": "02.04.2025",
     "buddies": "Agis, Alaris, Alva, Biara, Brogar, Brummar, Cortinus, Dain, Egor, Eliza, Elkas, Fenvys, Fern, Fex, Fraknak, Grygor, Hymni, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Klexs, Kovu, Kwehli, Kyrus, Lavinia, Pytor, Rogar, Ryuzo, Sohalja, Splinter, Tavas, Thalwyn, Thangrim, Thaunea, Thoroth, Thurkun, Trigul, Ultkar, Ves, Vraak, Xanvira, Yeldan, Yix"
   },
   {
@@ -449,13 +449,13 @@
     "sublcass": "Spores",
     "secondary_class": "",
     "secondary_subclass": "",
-    "gold": 94,
+    "gold": 194,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/43434/871/1581111423-129560810.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 55,
-    "games": 15,
-    "last_game": "27.03.2025",
-    "buddies": "Brock, Egor, Eliza, Elkas, Elodion, Fraknak, Glax, Kasim, Krindel, Seamol, Splinter, Xanvira, Yix"
+    "exp": 59,
+    "games": 16,
+    "last_game": "02.04.2025",
+    "buddies": "Agis, Brock, Egor, Eliza, Elkas, Elodion, Fraknak, Glax, Janosch, Kasim, Kell, Krindel, Seamol, Splinter, Xanvira, Yix"
   },
   {
     "id": "102771616",
@@ -587,9 +587,9 @@
     "gold": 754,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/43518/293/1581111423-129093920.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 78,
+    "exp": 82,
     "games": 24,
-    "last_game": "30.03.2025",
+    "last_game": "02.04.2025",
     "buddies": "Agis, Alaris, Alva, Brock, Brogar, Brummar, Cortinus, Egor, Eliza, Fenvys, Fern, Grygor, Janosch, Kasim, Kilgrin, Klexs, Pytor, Rogar, Ryzki, Seamol, Sohalja, Splinter, Tavas, Thalwyn, Thaunea, Thurkun, Tralin, Ves, Yix"
   },
   {
@@ -638,10 +638,10 @@
     "gold": 1.43,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/43816/510/1581111423-90541318.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 146,
-    "games": 28,
-    "last_game": "30.03.2025",
-    "buddies": "Alva, Brock, Brogar, Dain, Elkas, Fenvys, Fex, Grygor, Janosch, Kasim, Kell, Kelvyr, Quira, Tavas, Tralin, Zinner"
+    "exp": 149,
+    "games": 29,
+    "last_game": "02.04.2025",
+    "buddies": "Alva, Brock, Brogar, Cortinus, Dain, Elkas, Fenvys, Fex, Grygor, Janosch, Kasim, Kell, Kelvyr, Quira, Tavas, Tralin, Zinner"
   },
   {
     "id": "130764750",
@@ -1322,7 +1322,7 @@
     "id": "141771714",
     "name": "Noxfaradoth (Nox) der Güldene",
     "race": "Kobold",
-    "level": 5,
+    "level": 3,
     "class": "Sorcerer",
     "sublcass": "Draconic Sorcery",
     "secondary_class": "",
