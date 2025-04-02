@@ -1480,5 +1480,21 @@
     "exp": 50,
     "games": 0,
     "last_game": "-"
+  },
+  {
+    "id": "139649931",
+    "name": "Kathmar",
+    "race": "Kenku",
+    "level": 5,
+    "class": "Rogue",
+    "sublcass": "Inquisitive",
+    "secondary_class": "",
+    "secondary_subclass": "",
+    "gold": 110,
+    "status": "Inactive",
+    "avatar_url": "https://www.dndbeyond.com/avatars/48327/255/1581111423-139649931.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 50,
+    "games": 0,
+    "last_game": "-"
   }
 ]
