@@ -9,7 +9,7 @@ const dataDir = path.join(__dirname, '..', 'data');
 const sheetConfigs = {
   characters: {
     sheetName: 'website_characters',
-    range: 'A1:O501',
+    range: 'A1:P501',
     transform: (rows) => {
       const headers = rows[0];
       return rows.slice(1).map(row => {
