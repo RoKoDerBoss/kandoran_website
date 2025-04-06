@@ -1493,5 +1493,21 @@
     "exp": 50,
     "games": 0,
     "last_game": "-"
+  },
+  {
+    "id": "144046639",
+    "name": "Lucinda Vandran",
+    "race": "Human",
+    "level": 3,
+    "class": "Rogue",
+    "subclass": "Thief",
+    "secondary_class": "",
+    "secondary_subclass": "",
+    "gold": 30,
+    "status": "Inactive",
+    "avatar_url": "https://www.dndbeyond.com/avatars/48280/200/1581111423-144046639.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 15,
+    "games": 0,
+    "last_game": "-"
   }
 ]
