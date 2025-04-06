@@ -14,7 +14,8 @@
     "exp": 159,
     "games": 12,
     "last_game": "27.03.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Cortinus, Elkas, Fenvys, Fex, Grygor, Hiks, Janosch, Kelvyr, Kilgrin, Kovu, Quira, Rogar, Seamol, Tavas, Thoroth, Xanvira, Yix"
+    "buddies": "Agis, Alva, Brock, Brogar, Cortinus, Elkas, Fenvys, Fex, Grygor, Hiks, Janosch, Kelvyr, Kilgrin, Kovu, Quira, Rogar, Seamol, Tavas, Thoroth, Xanvira, Yix",
+    "player": "Captain "
   },
   {
     "id": "129070497",
@@ -31,7 +32,8 @@
     "exp": 138,
     "games": 21,
     "last_game": "02.04.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Brummar, Cortinus, Dain, Eliza, Elkas, Fenvys, Fex, Grygor, Hovas, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves"
+    "buddies": "Agis, Alva, Brock, Brogar, Brummar, Cortinus, Dain, Eliza, Elkas, Fenvys, Fex, Grygor, Hovas, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves",
+    "player": "Niclas"
   },
   {
     "id": "128845831",
@@ -48,7 +50,8 @@
     "exp": 35,
     "games": 1,
     "last_game": "30.12.2024",
-    "buddies": "Alva, Grygor, Kasim, Tavas"
+    "buddies": "Alva, Grygor, Kasim, Tavas",
+    "player": "Teddybär"
   },
   {
     "id": "126059290",
@@ -64,7 +67,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/37442/551/1581111423-103967625.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "SebGa"
   },
   {
     "id": "129108578",
@@ -81,7 +86,8 @@
     "exp": 78,
     "games": 15,
     "last_game": "29.03.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Eliza, Elkas, Glax, Grygor, Janosch, Kasim, Kelvyr, Kilgrin, Klexs, Rogar, Splinter, Tavas, Wrenn"
+    "buddies": "Agis, Alva, Brock, Brogar, Eliza, Elkas, Glax, Grygor, Janosch, Kasim, Kelvyr, Kilgrin, Klexs, Rogar, Splinter, Tavas, Wrenn",
+    "player": "Dennis"
   },
   {
     "id": "129043828",
@@ -98,7 +104,8 @@
     "exp": 21,
     "games": 6,
     "last_game": "10.02.2025",
-    "buddies": "Alaris, Biara, Cortinus, Eliza, Elkas, Kasim, Kilgrin, Kwehli, Kyrus, Nolan, Ryuzo, Sohalja, Tralin, Xanvira"
+    "buddies": "Alaris, Biara, Cortinus, Eliza, Elkas, Kasim, Kilgrin, Kwehli, Kyrus, Nolan, Ryuzo, Sohalja, Tralin, Xanvira",
+    "player": "Onel "
   },
   {
     "id": "129118211",
@@ -115,7 +122,8 @@
     "exp": 35,
     "games": 5,
     "last_game": "28.10.2024",
-    "buddies": "Fenvys, Glax, Kilgrin, Sunny, Thoroth, Thurkun, Tralin, Zinner"
+    "buddies": "Fenvys, Glax, Kilgrin, Sunny, Thoroth, Thurkun, Tralin, Zinner",
+    "player": "Ming "
   },
   {
     "id": "128851118",
@@ -132,7 +140,8 @@
     "exp": 49,
     "games": 24,
     "last_game": "23.03.2025",
-    "buddies": "Agis, Alva, Biara, Brindozh, Brogar, Brummar, Draxxion, Egor, Eliza, Elkas, Faris, Grygor, Hovas, Janosch, Kell, Kelvyr, Kilgrin, Kwehli, Nolan, Seamol, Sohalja, Sunny, Tamina, Trigul, Vitus, Weinflasche, Wrenn, Yeldan, Zarok, Zinner"
+    "buddies": "Agis, Alva, Biara, Brindozh, Brogar, Brummar, Draxxion, Egor, Eliza, Elkas, Faris, Grygor, Hovas, Janosch, Kell, Kelvyr, Kilgrin, Kwehli, Nolan, Seamol, Sohalja, Sunny, Tamina, Trigul, Vitus, Weinflasche, Wrenn, Yeldan, Zarok, Zinner",
+    "player": "Tizi "
   },
   {
     "id": "99425467",
@@ -149,7 +158,8 @@
     "exp": 87,
     "games": 9,
     "last_game": "02.04.2025",
-    "buddies": "Agis, Alva, Brock, Cortinus, Egor, Eliza, Grygor, Janosch, Kelvyr, Klexs, Quira, Splinter, Tavas, Tralin"
+    "buddies": "Agis, Alva, Brock, Cortinus, Egor, Eliza, Grygor, Janosch, Kelvyr, Klexs, Quira, Splinter, Tavas, Tralin",
+    "player": "Daniel "
   },
   {
     "id": "105970072",
@@ -166,7 +176,8 @@
     "exp": 65,
     "games": 3,
     "last_game": "30.12.2024",
-    "buddies": "Alva, Brock, Brummar, Elkas, Grygor, Janosch, Pytor, Tavas"
+    "buddies": "Alva, Brock, Brummar, Elkas, Grygor, Janosch, Pytor, Tavas",
+    "player": "RoKo "
   },
   {
     "id": "109831758",
@@ -183,7 +194,8 @@
     "exp": 57,
     "games": 4,
     "last_game": "14.03.2025",
-    "buddies": "Brock, Elkas, Fenvys, Hymni, Kell, Quira, Tavas, Thoroth, Vraak"
+    "buddies": "Brock, Elkas, Fenvys, Hymni, Kell, Quira, Tavas, Thoroth, Vraak",
+    "player": "TuckTuck"
   },
   {
     "id": "129161176",
@@ -200,7 +212,8 @@
     "exp": 90,
     "games": 16,
     "last_game": "29.03.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Egor, Eliza, Elkas, Fenvys, Fex, Grygor, Hiks, Hovas, Janosch, Kasim, Kell, Kilgrin, Klexs, Quira, Splinter, Ves"
+    "buddies": "Agis, Alva, Brock, Brogar, Egor, Eliza, Elkas, Fenvys, Fex, Grygor, Hiks, Hovas, Janosch, Kasim, Kell, Kilgrin, Klexs, Quira, Splinter, Ves",
+    "player": "Markus "
   },
   {
     "id": "129183339",
@@ -217,7 +230,8 @@
     "exp": 49,
     "games": 10,
     "last_game": "23.03.2025",
-    "buddies": "Alaris, Biara, Brock, Brogar, Dain, Draxxion, Eliza, Elkas, Faris, Fraknak, Janosch, Kyrus, Pytor, Rogar, Splinter, Tamina, Tralin, Trigul, Ves, Vitus"
+    "buddies": "Alaris, Biara, Brock, Brogar, Dain, Draxxion, Eliza, Elkas, Faris, Fraknak, Janosch, Kyrus, Pytor, Rogar, Splinter, Tamina, Tralin, Trigul, Ves, Vitus",
+    "player": "Bear "
   },
   {
     "id": "129156363",
@@ -234,7 +248,8 @@
     "exp": 42,
     "games": 15,
     "last_game": "13.01.2025",
-    "buddies": "Eliza, Rogar, Thoroth, Thurkun, Vraak, Zurgha"
+    "buddies": "Eliza, Rogar, Thoroth, Thurkun, Vraak, Zurgha",
+    "player": "TuckTuck"
   },
   {
     "id": "126113033",
@@ -251,7 +266,8 @@
     "exp": 70,
     "games": 14,
     "last_game": "01.03.2025",
-    "buddies": "Alva, Brock, Brogar, Eliza, Elkas, Fenvys, Glax, Grygor, Janosch, Kasim, Kelvyr, Rogar, Seamol, Sunny, Tavas, Tralin, Wrenn, Zinner"
+    "buddies": "Alva, Brock, Brogar, Eliza, Elkas, Fenvys, Glax, Grygor, Janosch, Kasim, Kelvyr, Rogar, Seamol, Sunny, Tavas, Tralin, Wrenn, Zinner",
+    "player": "Daniel "
   },
   {
     "id": "123298101",
@@ -268,7 +284,8 @@
     "exp": 27,
     "games": 3,
     "last_game": "28.10.2024",
-    "buddies": "Glax, Kilgrin, Thoroth, Thurkun, Tralin, Wrenn, Zinner"
+    "buddies": "Glax, Kilgrin, Thoroth, Thurkun, Tralin, Wrenn, Zinner",
+    "player": "Sebastian "
   },
   {
     "id": "124560154",
@@ -285,7 +302,8 @@
     "exp": 128,
     "games": 27,
     "last_game": "30.03.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Elkas, Fenvys, Fex, Hiks, Hovas, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves"
+    "buddies": "Agis, Alva, Brock, Brogar, Elkas, Fenvys, Fex, Hiks, Hovas, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves",
+    "player": "Crank_aut "
   },
   {
     "id": "126106498",
@@ -302,7 +320,8 @@
     "exp": 62,
     "games": 4,
     "last_game": "15.10.2024",
-    "buddies": "Agis, Hovas, Janosch, Kell, Klexs, Quira, Tavas, Tralin"
+    "buddies": "Agis, Hovas, Janosch, Kell, Klexs, Quira, Tavas, Tralin",
+    "player": "Chris "
   },
   {
     "id": "123220793",
@@ -319,7 +338,8 @@
     "exp": 18,
     "games": 7,
     "last_game": "14.10.2024",
-    "buddies": "Eliza, Thoroth, Zoe"
+    "buddies": "Eliza, Thoroth, Zoe",
+    "player": "Zerodyme "
   },
   {
     "id": "110966699",
@@ -336,7 +356,8 @@
     "exp": 173,
     "games": 32,
     "last_game": "30.03.2025",
-    "buddies": "Agis, Brock, Brogar, Dain, Elkas, Fenvys, Fex, Grygor, Hiks, Hovas, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves"
+    "buddies": "Agis, Brock, Brogar, Dain, Elkas, Fenvys, Fex, Grygor, Hiks, Hovas, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Quira, Tavas, Tralin, Ves",
+    "player": "Saya"
   },
   {
     "id": "105395007",
@@ -353,7 +374,8 @@
     "exp": 27,
     "games": 7,
     "last_game": "22.11.2024",
-    "buddies": "Alaris, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Seamol, Sohalja, Thaunea, Thoroth"
+    "buddies": "Alaris, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Seamol, Sohalja, Thaunea, Thoroth",
+    "player": "Zerodyme "
   },
   {
     "id": "129120995",
@@ -370,7 +392,8 @@
     "exp": 55,
     "games": 1,
     "last_game": "15.12.2024",
-    "buddies": "Agis, Alva, Grygor, Quira, Tavas"
+    "buddies": "Agis, Alva, Grygor, Quira, Tavas",
+    "player": "Sheriff "
   },
   {
     "id": "129101125",
@@ -387,7 +410,8 @@
     "exp": 59,
     "games": 2,
     "last_game": "12.12.2024",
-    "buddies": "Alva, Grygor, Janosch, Kelvyr, Tavas, Tralin"
+    "buddies": "Alva, Grygor, Janosch, Kelvyr, Tavas, Tralin",
+    "player": "MrWinter "
   },
   {
     "id": "129502211",
@@ -404,7 +428,8 @@
     "exp": 92,
     "games": 34,
     "last_game": "02.04.2025",
-    "buddies": "Agis, Alaris, Alva, Biara, Brogar, Brummar, Cortinus, Dain, Egor, Eliza, Elkas, Fenvys, Fern, Fex, Fraknak, Grygor, Hymni, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Klexs, Kovu, Kwehli, Kyrus, Lavinia, Pytor, Rogar, Ryuzo, Sohalja, Splinter, Tavas, Thangrim, Thaunea, Thoroth, Thurkun, Trigul, Ultkar, Ves, Vraak, Xanvira, Yeldan, Yix"
+    "buddies": "Agis, Alaris, Alva, Biara, Brogar, Brummar, Cortinus, Dain, Egor, Eliza, Elkas, Fenvys, Fern, Fex, Fraknak, Grygor, Hymni, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Klexs, Kovu, Kwehli, Kyrus, Lavinia, Pytor, Rogar, Ryuzo, Sohalja, Splinter, Tavas, Thangrim, Thaunea, Thoroth, Thurkun, Trigul, Ultkar, Ves, Vraak, Xanvira, Yeldan, Yix",
+    "player": "Tizi "
   },
   {
     "id": "129464558",
@@ -421,7 +446,8 @@
     "exp": 18,
     "games": 5,
     "last_game": "23.11.2024",
-    "buddies": "Brock, Brogar, Cortinus, Eliza, Elodion, Kasim, Seamol, Splinter, Yix"
+    "buddies": "Brock, Brogar, Cortinus, Eliza, Elodion, Kasim, Seamol, Splinter, Yix",
+    "player": "Dennis"
   },
   {
     "id": "129438996",
@@ -438,7 +464,8 @@
     "exp": 70,
     "games": 22,
     "last_game": "27.03.2025",
-    "buddies": "Alaris, Biara, Brock, Brummar, Cortinus, Egor, Elkas, Faris, Fenvys, Glax, Janosch, Kell, Kilgrin, Nolan, Rogar, Seamol, Splinter, Tavas, Thoroth, Thurkun, Tralin, Trigul, Weinflasche, Xanvira, Zarok, Zoe"
+    "buddies": "Alaris, Biara, Brock, Brummar, Cortinus, Egor, Elkas, Faris, Fenvys, Glax, Janosch, Kell, Kilgrin, Nolan, Rogar, Seamol, Splinter, Tavas, Thoroth, Thurkun, Tralin, Trigul, Weinflasche, Xanvira, Zarok, Zoe",
+    "player": "Saya"
   },
   {
     "id": "129560810",
@@ -455,7 +482,8 @@
     "exp": 63,
     "games": 17,
     "last_game": "04.04.2025",
-    "buddies": "Agis, Brock, Egor, Eliza, Elkas, Elodion, Fraknak, Glax, Janosch, Kasim, Kell, Krindel, Seamol, Splinter, Xanvira, Yix"
+    "buddies": "Agis, Brock, Egor, Eliza, Elkas, Elodion, Fraknak, Glax, Janosch, Kasim, Kell, Krindel, Seamol, Splinter, Xanvira, Yix",
+    "player": "Kieske "
   },
   {
     "id": "102771616",
@@ -472,7 +500,8 @@
     "exp": 72,
     "games": 6,
     "last_game": "30.03.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Dain, Grygor, Janosch, Kasim, Kelvyr, Quira, Tavas"
+    "buddies": "Agis, Alva, Brock, Brogar, Dain, Grygor, Janosch, Kasim, Kelvyr, Quira, Tavas",
+    "player": "Bear "
   },
   {
     "id": "129514460",
@@ -488,7 +517,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/39308/940/1581111423-114116317.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Nyden "
   },
   {
     "id": "129049298",
@@ -505,7 +536,8 @@
     "exp": 161,
     "games": 20,
     "last_game": "15.03.2025",
-    "buddies": "Agis, Alva, Brock, Brogar, Dain, Fenvys, Fex, Grygor, Hovas, Janosch, Kasim, Kell, Kilgrin, Quira, Tralin"
+    "buddies": "Agis, Alva, Brock, Brogar, Dain, Fenvys, Fex, Grygor, Hovas, Janosch, Kasim, Kell, Kilgrin, Quira, Tralin",
+    "player": "Niklas "
   },
   {
     "id": "129619493",
@@ -521,7 +553,9 @@
     "avatar_url": "",
     "exp": 0,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Joe "
   },
   {
     "id": "129538415",
@@ -538,7 +572,8 @@
     "exp": 70,
     "games": 4,
     "last_game": "12.12.2024",
-    "buddies": "Agis, Glax, Kilgrin, Sunny, Tralin, Wrenn"
+    "buddies": "Agis, Glax, Kilgrin, Sunny, Tralin, Wrenn",
+    "player": "Captain "
   },
   {
     "id": "129620568",
@@ -555,7 +590,8 @@
     "exp": 18,
     "games": 5,
     "last_game": "04.02.2025",
-    "buddies": "Brock, Cortinus, Elkas, Fern, Kasim, Sohalja, Xanvira"
+    "buddies": "Brock, Cortinus, Elkas, Fern, Kasim, Sohalja, Xanvira",
+    "player": "Markus "
   },
   {
     "id": "88874503",
@@ -572,7 +608,8 @@
     "exp": 127,
     "games": 18,
     "last_game": "15.03.2025",
-    "buddies": "Agis, Alva, Brogar, Fex, Grygor, Janosch, Kasim, Kell, Kelvyr, Klexs, Tavas"
+    "buddies": "Agis, Alva, Brogar, Fex, Grygor, Janosch, Kasim, Kell, Kelvyr, Klexs, Tavas",
+    "player": "Lexxy "
   },
   {
     "id": "129093920",
@@ -589,7 +626,8 @@
     "exp": 82,
     "games": 24,
     "last_game": "02.04.2025",
-    "buddies": "Agis, Alaris, Alva, Brock, Brogar, Brummar, Cortinus, Egor, Eliza, Fenvys, Fern, Grygor, Janosch, Kasim, Kilgrin, Klexs, Pytor, Rogar, Seamol, Sohalja, Splinter, Tavas, Thaunea, Thurkun, Tralin, Ves, Yix"
+    "buddies": "Agis, Alaris, Alva, Brock, Brogar, Brummar, Cortinus, Egor, Eliza, Fenvys, Fern, Grygor, Janosch, Kasim, Kilgrin, Klexs, Pytor, Rogar, Seamol, Sohalja, Splinter, Tavas, Thaunea, Thurkun, Tralin, Ves, Yix",
+    "player": "Chris "
   },
   {
     "id": "129965260",
@@ -606,7 +644,8 @@
     "exp": 43,
     "games": 11,
     "last_game": "25.03.2025",
-    "buddies": "Biara, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Kycis, Rogar, Ryuzo, Seamol, Sohalja, Thangrim, Ultkar"
+    "buddies": "Biara, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Kycis, Rogar, Ryuzo, Seamol, Sohalja, Thangrim, Ultkar",
+    "player": "TuckTuck"
   },
   {
     "id": "130363600",
@@ -623,7 +662,8 @@
     "exp": 35,
     "games": 12,
     "last_game": "14.03.2025",
-    "buddies": "Brock, Eliza, Glax, Hymni, Kasim, Klexs, Kovu, Rogar, Sunny, Thurkun, Vraak, Wrenn, Zoe"
+    "buddies": "Brock, Eliza, Glax, Hymni, Kasim, Klexs, Kovu, Rogar, Sunny, Thurkun, Vraak, Wrenn, Zoe",
+    "player": "Onel "
   },
   {
     "id": "90541318",
@@ -640,7 +680,8 @@
     "exp": 149,
     "games": 29,
     "last_game": "02.04.2025",
-    "buddies": "Alva, Brock, Brogar, Cortinus, Dain, Elkas, Fenvys, Fex, Grygor, Janosch, Kasim, Kell, Kelvyr, Quira, Tavas, Tralin, Zinner"
+    "buddies": "Alva, Brock, Brogar, Cortinus, Dain, Elkas, Fenvys, Fex, Grygor, Janosch, Kasim, Kell, Kelvyr, Quira, Tavas, Tralin, Zinner",
+    "player": "Luis "
   },
   {
     "id": "130764750",
@@ -657,7 +698,8 @@
     "exp": 12,
     "games": 5,
     "last_game": "14.01.2025",
-    "buddies": "Brock, Elkas, Hymni, Sohalja, Yix"
+    "buddies": "Brock, Elkas, Hymni, Sohalja, Yix",
+    "player": "Onel "
   },
   {
     "id": "130909393",
@@ -674,7 +716,8 @@
     "exp": 27,
     "games": 9,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Biara, Brock, Elkas, Fern, Hymni, Kwehli, Kycis, Ryuzo, Seamol, Thangrim, Thaunea, Tralin, Ultkar, Yix"
+    "buddies": "Alaris, Biara, Brock, Elkas, Fern, Hymni, Kwehli, Kycis, Ryuzo, Seamol, Thangrim, Thaunea, Tralin, Ultkar, Yix",
+    "player": "Gwen "
   },
   {
     "id": "130940826",
@@ -691,7 +734,8 @@
     "exp": 7,
     "games": 2,
     "last_game": "18.10.2024",
-    "buddies": "Brock, Elkas, Sohalja"
+    "buddies": "Brock, Elkas, Sohalja",
+    "player": "Plasmatomate"
   },
   {
     "id": "103674723",
@@ -707,7 +751,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/45263/258/1581111423-103674723.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Leo "
   },
   {
     "id": "129643894",
@@ -724,7 +770,8 @@
     "exp": 20,
     "games": 2,
     "last_game": "15.01.2025",
-    "buddies": "Alaris, Brock, Rogar, Sohalja, Ultkar"
+    "buddies": "Alaris, Brock, Rogar, Sohalja, Ultkar",
+    "player": "Leo "
   },
   {
     "id": "117637753",
@@ -741,7 +788,8 @@
     "exp": 20,
     "games": 2,
     "last_game": "15.01.2025",
-    "buddies": "Alaris, Brock, Rogar, Sohalja, Thangrim"
+    "buddies": "Alaris, Brock, Rogar, Sohalja, Thangrim",
+    "player": "Zerodyme "
   },
   {
     "id": "124094926",
@@ -758,7 +806,8 @@
     "exp": 31,
     "games": 4,
     "last_game": "23.03.2025",
-    "buddies": "Alaris, Biara, Brock, Hymni, Seamol, Sohalja, Tralin"
+    "buddies": "Alaris, Biara, Brock, Hymni, Seamol, Sohalja, Tralin",
+    "player": "Leo "
   },
   {
     "id": "130909288",
@@ -775,7 +824,8 @@
     "exp": 19,
     "games": 5,
     "last_game": "14.03.2025",
-    "buddies": "Alaris, Brock, Fern, Klexs, Kwehli, Sohalja, Thoroth, Vraak"
+    "buddies": "Alaris, Brock, Fern, Klexs, Kwehli, Sohalja, Thoroth, Vraak",
+    "player": "Sanji "
   },
   {
     "id": "130946127",
@@ -791,7 +841,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/43893/131/1581111423-130946127.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 0,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Robin "
   },
   {
     "id": "110621691",
@@ -808,7 +860,8 @@
     "exp": 62,
     "games": 3,
     "last_game": "01.11.2024",
-    "buddies": "Agis, Alva, Brock, Brummar, Fex, Fraknak, Janosch, Kelvyr, Rogar"
+    "buddies": "Agis, Alva, Brock, Brummar, Fex, Fraknak, Janosch, Kelvyr, Rogar",
+    "player": "Philipp "
   },
   {
     "id": "131198025",
@@ -824,7 +877,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/44249/249/1581111423-131198025.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 0,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "KeineAhnung I Grim Grau"
   },
   {
     "id": "132859784",
@@ -841,7 +896,8 @@
     "exp": 50,
     "games": 8,
     "last_game": "04.04.2025",
-    "buddies": "Brogar, Cortinus, Egor, Eliza, Fenvys, Fraknak, Kilgrin, Splinter, Sunny, Thoroth, Thurkun, Trigul, Wrenn, Zinner"
+    "buddies": "Brogar, Cortinus, Egor, Eliza, Fenvys, Fraknak, Kilgrin, Splinter, Sunny, Thoroth, Thurkun, Trigul, Wrenn, Zinner",
+    "player": "Lexxy "
   },
   {
     "id": "133099855",
@@ -858,7 +914,8 @@
     "exp": 46,
     "games": 10,
     "last_game": "28.02.2025",
-    "buddies": "Biara, Brock, Egor, Eliza, Elkas, Glax, Rogar, Sunny, Thoroth, Vraak, Weinflasche, Wrenn, Zoe, Zurgha"
+    "buddies": "Biara, Brock, Egor, Eliza, Elkas, Glax, Rogar, Sunny, Thoroth, Vraak, Weinflasche, Wrenn, Zoe, Zurgha",
+    "player": "Plasmatomate"
   },
   {
     "id": "134828546",
@@ -875,7 +932,8 @@
     "exp": 38,
     "games": 8,
     "last_game": "17.02.2025",
-    "buddies": "Biara, Rogar, Thurkun, Vraak, Weinflasche, Zoe"
+    "buddies": "Biara, Rogar, Thurkun, Vraak, Weinflasche, Zoe",
+    "player": "Gwen "
   },
   {
     "id": "135190099",
@@ -892,7 +950,8 @@
     "exp": 38,
     "games": 8,
     "last_game": "14.03.2025",
-    "buddies": "Brock, Hymni, Klexs, Rogar, Thoroth, Thurkun, Zoe, Zurgha"
+    "buddies": "Brock, Hymni, Klexs, Rogar, Thoroth, Thurkun, Zoe, Zurgha",
+    "player": "Zerodyme "
   },
   {
     "id": "135120708",
@@ -909,7 +968,8 @@
     "exp": 67,
     "games": 17,
     "last_game": "13.01.2025",
-    "buddies": "Alaris, Brock, Brogar, Brummar, Dain, Eliza, Elkas, Fenvys, Fraknak, Kasim, Kilgrin, Kovu, Splinter, Thangrim, Thoroth, Thurkun, Ultkar, Vraak, Zoe, Zurgha"
+    "buddies": "Alaris, Brock, Brogar, Brummar, Dain, Eliza, Elkas, Fenvys, Fraknak, Kasim, Kilgrin, Kovu, Splinter, Thangrim, Thoroth, Thurkun, Ultkar, Vraak, Zoe, Zurgha",
+    "player": "Niklas "
   },
   {
     "id": "135119764",
@@ -926,7 +986,8 @@
     "exp": 134,
     "games": 17,
     "last_game": "29.03.2025",
-    "buddies": "Agis, Alva, Brock, Brummar, Elkas, Fenvys, Fex, Glax, Grygor, Janosch, Kasim, Kelvyr, Kilgrin, Quira, Rogar, Splinter, Tavas, Tralin, Xanvira"
+    "buddies": "Agis, Alva, Brock, Brummar, Elkas, Fenvys, Fex, Glax, Grygor, Janosch, Kasim, Kelvyr, Kilgrin, Quira, Rogar, Splinter, Tavas, Tralin, Xanvira",
+    "player": "Tobi "
   },
   {
     "id": "135466561",
@@ -943,7 +1004,8 @@
     "exp": 55,
     "games": 10,
     "last_game": "04.04.2025",
-    "buddies": "Brock, Brummar, Cortinus, Dain, Egor, Glax, Krindel, Rogar, Splinter"
+    "buddies": "Brock, Brummar, Cortinus, Dain, Egor, Glax, Krindel, Rogar, Splinter",
+    "player": "Ming "
   },
   {
     "id": "135878874",
@@ -960,7 +1022,8 @@
     "exp": 62,
     "games": 13,
     "last_game": "04.04.2025",
-    "buddies": "Brock, Brogar, Brummar, Cortinus, Egor, Eliza, Elkas, Fenvys, Fraknak, Glax, Kell, Kyrus, Rogar, Tavas, Trigul, Xanvira"
+    "buddies": "Brock, Brogar, Brummar, Cortinus, Egor, Eliza, Elkas, Fenvys, Fraknak, Glax, Kell, Kyrus, Rogar, Tavas, Trigul, Xanvira",
+    "player": "Birni "
   },
   {
     "id": "136071227",
@@ -977,7 +1040,8 @@
     "exp": 18,
     "games": 1,
     "last_game": "14.12.2024",
-    "buddies": "Brock, Yeldan"
+    "buddies": "Brock, Yeldan",
+    "player": "Larian "
   },
   {
     "id": "129688244",
@@ -994,7 +1058,8 @@
     "exp": 19,
     "games": 1,
     "last_game": "17.11.2024",
-    "buddies": "Brock, Brummar, Elkas, Ves"
+    "buddies": "Brock, Brummar, Elkas, Ves",
+    "player": "Kieske "
   },
   {
     "id": "134344635",
@@ -1011,7 +1076,8 @@
     "exp": 5,
     "games": 1,
     "last_game": "22.11.2024",
-    "buddies": "Cortinus, Xanvira"
+    "buddies": "Cortinus, Xanvira",
+    "player": "Pascal "
   },
   {
     "id": "136648788",
@@ -1027,7 +1093,9 @@
     "avatar_url": "",
     "exp": 15,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Joe "
   },
   {
     "id": "137558057",
@@ -1044,7 +1112,8 @@
     "exp": 24,
     "games": 3,
     "last_game": "04.03.2025",
-    "buddies": "Brindozh, Brock, Egor, Lavinia, Tamina, Tralin, Trigul, Weinflasche"
+    "buddies": "Brindozh, Brock, Egor, Lavinia, Tamina, Tralin, Trigul, Weinflasche",
+    "player": "Niclas"
   },
   {
     "id": "111273098",
@@ -1061,7 +1130,8 @@
     "exp": 19,
     "games": 1,
     "last_game": "04.12.2024",
-    "buddies": "Brock, Kasim, Rogar, Thoroth"
+    "buddies": "Brock, Kasim, Rogar, Thoroth",
+    "player": "RoKo "
   },
   {
     "id": "139214404",
@@ -1078,7 +1148,8 @@
     "exp": 34,
     "games": 6,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Biara, Brock, Egor, Kycis, Kyrus, Nolan, Seamol, Sohalja, Trigul"
+    "buddies": "Alaris, Biara, Brock, Egor, Kycis, Kyrus, Nolan, Seamol, Sohalja, Trigul",
+    "player": "Moon "
   },
   {
     "id": "139460953",
@@ -1094,7 +1165,9 @@
     "avatar_url": "",
     "exp": 15,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Joe "
   },
   {
     "id": "139472094",
@@ -1111,7 +1184,8 @@
     "exp": 19,
     "games": 1,
     "last_game": "14.01.2025",
-    "buddies": "Cortinus, Fraknak"
+    "buddies": "Cortinus, Fraknak",
+    "player": "Sheriff "
   },
   {
     "id": "139487965",
@@ -1128,7 +1202,8 @@
     "exp": 42,
     "games": 9,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Brock, Brummar, Draxxion, Eliza, Faris, Kwehli, Kycis, Kyrus, Nolan, Ryuzo, Seamol, Sohalja, Thurkun, Tralin, Vitus, Weinflasche, Zurgha"
+    "buddies": "Alaris, Brock, Brummar, Draxxion, Eliza, Faris, Kwehli, Kycis, Kyrus, Nolan, Ryuzo, Seamol, Sohalja, Thurkun, Tralin, Vitus, Weinflasche, Zurgha",
+    "player": "Birni "
   },
   {
     "id": "139887442",
@@ -1145,7 +1220,8 @@
     "exp": 70,
     "games": 14,
     "last_game": "04.04.2025",
-    "buddies": "Brindozh, Brock, Cortinus, Eliza, Elkas, Faris, Fraknak, Glax, Kell, Kyrus, Nolan, Ryuzo, Splinter, Tavas, Thurkun, Tralin, Trigul, Weinflasche, Yeldan, Zarok"
+    "buddies": "Brindozh, Brock, Cortinus, Eliza, Elkas, Faris, Fraknak, Glax, Kell, Kyrus, Nolan, Ryuzo, Splinter, Tavas, Thurkun, Tralin, Trigul, Weinflasche, Yeldan, Zarok",
+    "player": "Dennis"
   },
   {
     "id": "140186558",
@@ -1162,7 +1238,8 @@
     "exp": 47,
     "games": 3,
     "last_game": "29.03.2025",
-    "buddies": "Biara, Brock, Brummar, Egor, Nolan, Ryuzo, Seamol, Splinter, Trigul"
+    "buddies": "Biara, Brock, Brummar, Egor, Nolan, Ryuzo, Seamol, Splinter, Trigul",
+    "player": "Captain "
   },
   {
     "id": "140186510",
@@ -1179,7 +1256,8 @@
     "exp": 39,
     "games": 7,
     "last_game": "10.03.2025",
-    "buddies": "Brock, Brummar, Egor, Eliza, Faris, Glax, Kyrus, Nolan, Ryuzo, Splinter, Tamina, Tralin, Weinflasche, Yeldan"
+    "buddies": "Brock, Brummar, Egor, Eliza, Faris, Glax, Kyrus, Nolan, Ryuzo, Splinter, Tamina, Tralin, Weinflasche, Yeldan",
+    "player": "Tobi "
   },
   {
     "id": "121961522",
@@ -1196,7 +1274,8 @@
     "exp": 18,
     "games": 1,
     "last_game": "14.02.2025",
-    "buddies": "Egor, Eliza, Faris, Tralin"
+    "buddies": "Egor, Eliza, Faris, Tralin",
+    "player": "Danijel "
   },
   {
     "id": "136342726",
@@ -1213,7 +1292,8 @@
     "exp": 26,
     "games": 4,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Biara, Ryuzo, Sohalja"
+    "buddies": "Alaris, Biara, Ryuzo, Sohalja",
+    "player": "Zerodyme "
   },
   {
     "id": "139920556",
@@ -1230,7 +1310,8 @@
     "exp": 19,
     "games": 1,
     "last_game": "04.02.2025",
-    "buddies": "Egor, Tralin, Yeldan"
+    "buddies": "Egor, Tralin, Yeldan",
+    "player": "Jan"
   },
   {
     "id": "139384014",
@@ -1246,7 +1327,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/10/90/636339382313449109.png?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 15,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Crank_aut "
   },
   {
     "id": "140488990",
@@ -1263,7 +1346,8 @@
     "exp": 27,
     "games": 3,
     "last_game": "23.02.2025",
-    "buddies": "Biara, Egor, Eliza, Faris, Kyrus, Ryuzo, Seamol, Tralin, Trigul, Weinflasche"
+    "buddies": "Biara, Egor, Eliza, Faris, Kyrus, Ryuzo, Seamol, Tralin, Trigul, Weinflasche",
+    "player": "Niklas "
   },
   {
     "id": "140968211",
@@ -1279,7 +1363,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/47135/694/1581111423-140968211.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 0,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Brond "
   },
   {
     "id": "90896896",
@@ -1296,7 +1382,8 @@
     "exp": 34,
     "games": 5,
     "last_game": "23.03.2025",
-    "buddies": "Biara, Brummar, Draxxion, Egor, Eliza, Nolan, Tamina, Tralin, Trigul, Vitus, Zarok"
+    "buddies": "Biara, Brummar, Draxxion, Egor, Eliza, Nolan, Tamina, Tralin, Trigul, Vitus, Zarok",
+    "player": "Luis "
   },
   {
     "id": "141538573",
@@ -1313,7 +1400,8 @@
     "exp": 28,
     "games": 4,
     "last_game": "04.03.2025",
-    "buddies": "Biara, Egor, Eliza, Nolan, Tamina, Thurkun, Tralin, Trigul, Yeldan, Zurgha"
+    "buddies": "Biara, Egor, Eliza, Nolan, Tamina, Thurkun, Tralin, Trigul, Yeldan, Zurgha",
+    "player": "Markus "
   },
   {
     "id": "141771714",
@@ -1329,7 +1417,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/48336/281/1581111423-141771714.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 15,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Benny der Bär "
   },
   {
     "id": "137480406",
@@ -1346,7 +1436,8 @@
     "exp": 23,
     "games": 2,
     "last_game": "23.03.2025",
-    "buddies": "Brummar, Faris, Tralin, Trigul, Vitus, Weinflasche, Yeldan"
+    "buddies": "Brummar, Faris, Tralin, Trigul, Vitus, Weinflasche, Yeldan",
+    "player": "Saya"
   },
   {
     "id": "142640633",
@@ -1363,7 +1454,8 @@
     "exp": 24,
     "games": 2,
     "last_game": "23.03.2025",
-    "buddies": "Biara, Brummar, Draxxion, Faris, Tamina, Tralin"
+    "buddies": "Biara, Brummar, Draxxion, Faris, Tamina, Tralin",
+    "player": "Benny der Bär "
   },
   {
     "id": "143289626",
@@ -1380,7 +1472,8 @@
     "exp": 18,
     "games": 1,
     "last_game": "16.03.2025",
-    "buddies": "Biara, Brummar, Faris, Tralin, Vitus"
+    "buddies": "Biara, Brummar, Faris, Tralin, Vitus",
+    "player": "Patrickx"
   },
   {
     "id": "136355326",
@@ -1396,7 +1489,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/45522/796/1581111423-136355326.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 15,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Chris "
   },
   {
     "id": "136191142",
@@ -1412,7 +1507,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/45465/755/1581111423-136191142.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Tizi "
   },
   {
     "id": "144115347",
@@ -1428,7 +1525,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/48309/414/1581111423-144115347.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Leo "
   },
   {
     "id": "138296813",
@@ -1444,7 +1543,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/48259/644/1581111423-138296813.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 15,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Birni "
   },
   {
     "id": "144162801",
@@ -1460,7 +1561,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/48333/795/1581111423-144162801.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Leo "
   },
   {
     "id": "144103186",
@@ -1476,7 +1579,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/48330/724/1581111423-144103186.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Niclas"
   },
   {
     "id": "139649931",
@@ -1492,7 +1597,9 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/48327/255/1581111423-139649931.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 50,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Chris "
   },
   {
     "id": "144046639",
@@ -1508,6 +1615,8 @@
     "avatar_url": "https://www.dndbeyond.com/avatars/48280/200/1581111423-144046639.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 15,
     "games": 0,
-    "last_game": "-"
+    "last_game": "-",
+    "buddies": "",
+    "player": "Theodere"
   }
 ]
