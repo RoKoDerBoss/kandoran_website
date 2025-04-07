@@ -230,7 +230,7 @@
     "exp": 49,
     "games": 10,
     "last_game": "23.03.2025",
-    "buddies": "Alaris, Biara, Brock, Brogar, Dain, Draxxion, Eliza, Elkas, Faris, Fraknak, Janosch, Kyrus, Pytor, Rogar, Splinter, Tamina, Tralin, Trigul, Ves, Vitus",
+    "buddies": "Alaris, Biara, Brock, Brogar, Dain, Draxxion, Eliza, Elkas, Faris, Fraknak, Janosch, Kyrus, Pytor, Rogar, Ryzki, Splinter, Tamina, Tralin, Trigul, Ves, Vitus",
     "player": "Bear "
   },
   {
@@ -374,7 +374,7 @@
     "exp": 27,
     "games": 7,
     "last_game": "22.11.2024",
-    "buddies": "Alaris, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Seamol, Sohalja, Thaunea, Thoroth",
+    "buddies": "Alaris, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Ryzki, Seamol, Sohalja, Thalwyn, Thaunea, Thoroth",
     "player": "Zerodyme "
   },
   {
@@ -428,7 +428,7 @@
     "exp": 92,
     "games": 34,
     "last_game": "02.04.2025",
-    "buddies": "Agis, Alaris, Alva, Biara, Brogar, Brummar, Cortinus, Dain, Egor, Eliza, Elkas, Fenvys, Fern, Fex, Fraknak, Grygor, Hymni, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Klexs, Kovu, Kwehli, Kyrus, Lavinia, Pytor, Rogar, Ryuzo, Sohalja, Splinter, Tavas, Thangrim, Thaunea, Thoroth, Thurkun, Trigul, Ultkar, Ves, Vraak, Xanvira, Yeldan, Yix",
+    "buddies": "Agis, Alaris, Alva, Biara, Brogar, Brummar, Cortinus, Dain, Egor, Eliza, Elkas, Fenvys, Fern, Fex, Fraknak, Grygor, Hymni, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Klexs, Kovu, Kwehli, Kyrus, Lavinia, Pytor, Rogar, Ryuzo, Sohalja, Splinter, Tavas, Thalwyn, Thangrim, Thaunea, Thoroth, Thurkun, Trigul, Ultkar, Ves, Vraak, Xanvira, Yeldan, Yix",
     "player": "Tizi "
   },
   {
@@ -541,20 +541,20 @@
   },
   {
     "id": "129619493",
-    "name": "",
-    "race": "",
-    "level": "",
-    "class": "",
+    "name": "Thalwyn",
+    "race": "Forest Gnome",
+    "level": 1,
+    "class": "Druid",
     "subclass": "",
     "secondary_class": "",
     "secondary_subclass": "",
-    "gold": "",
+    "gold": 5,
     "status": "Inactive",
-    "avatar_url": "",
-    "exp": 0,
-    "games": 0,
-    "last_game": "-",
-    "buddies": "",
+    "avatar_url": "https://www.dndbeyond.com/avatars/43450/286/1581111423-129619493.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 17,
+    "games": 3,
+    "last_game": "10.01.2025",
+    "buddies": "Alaris, Brock, Elkas, Hymni, Kwehli, Ryuzo, Sohalja, Thaunea",
     "player": "Joe "
   },
   {
@@ -626,7 +626,7 @@
     "exp": 82,
     "games": 24,
     "last_game": "02.04.2025",
-    "buddies": "Agis, Alaris, Alva, Brock, Brogar, Brummar, Cortinus, Egor, Eliza, Fenvys, Fern, Grygor, Janosch, Kasim, Kilgrin, Klexs, Pytor, Rogar, Seamol, Sohalja, Splinter, Tavas, Thaunea, Thurkun, Tralin, Ves, Yix",
+    "buddies": "Agis, Alaris, Alva, Brock, Brogar, Brummar, Cortinus, Egor, Eliza, Fenvys, Fern, Grygor, Janosch, Kasim, Kilgrin, Klexs, Pytor, Rogar, Ryzki, Seamol, Sohalja, Splinter, Tavas, Thalwyn, Thaunea, Thurkun, Tralin, Ves, Yix",
     "player": "Chris "
   },
   {
@@ -644,7 +644,7 @@
     "exp": 43,
     "games": 11,
     "last_game": "25.03.2025",
-    "buddies": "Biara, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Kycis, Rogar, Ryuzo, Seamol, Sohalja, Thangrim, Ultkar",
+    "buddies": "Biara, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Kycis, Rogar, Ryuzo, Seamol, Sohalja, Thalwyn, Thangrim, Ultkar",
     "player": "TuckTuck"
   },
   {
@@ -662,7 +662,7 @@
     "exp": 35,
     "games": 12,
     "last_game": "14.03.2025",
-    "buddies": "Brock, Eliza, Glax, Hymni, Kasim, Klexs, Kovu, Rogar, Sunny, Thurkun, Vraak, Wrenn, Zoe",
+    "buddies": "Brock, Eliza, Glax, Hymni, Kasim, Klexs, Kovu, Rogar, Ryzki, Sunny, Thurkun, Vraak, Wrenn, Zoe",
     "player": "Onel "
   },
   {
@@ -716,7 +716,7 @@
     "exp": 27,
     "games": 9,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Biara, Brock, Elkas, Fern, Hymni, Kwehli, Kycis, Ryuzo, Seamol, Thangrim, Thaunea, Tralin, Ultkar, Yix",
+    "buddies": "Alaris, Biara, Brock, Elkas, Fern, Hymni, Kwehli, Kycis, Ryuzo, Seamol, Thalwyn, Thangrim, Thaunea, Tralin, Ultkar, Yix",
     "player": "Gwen "
   },
   {
@@ -734,7 +734,7 @@
     "exp": 7,
     "games": 2,
     "last_game": "18.10.2024",
-    "buddies": "Brock, Elkas, Sohalja",
+    "buddies": "Brock, Elkas, Sohalja, Thalwyn",
     "player": "Plasmatomate"
   },
   {
@@ -806,7 +806,7 @@
     "exp": 31,
     "games": 4,
     "last_game": "23.03.2025",
-    "buddies": "Alaris, Biara, Brock, Hymni, Seamol, Sohalja, Tralin",
+    "buddies": "Alaris, Biara, Brock, Hymni, Seamol, Sohalja, Thalwyn, Tralin",
     "player": "Leo "
   },
   {
@@ -824,7 +824,7 @@
     "exp": 19,
     "games": 5,
     "last_game": "14.03.2025",
-    "buddies": "Alaris, Brock, Fern, Klexs, Kwehli, Sohalja, Thoroth, Vraak",
+    "buddies": "Alaris, Brock, Fern, Klexs, Kwehli, Sohalja, Thalwyn, Thoroth, Vraak",
     "player": "Sanji "
   },
   {
@@ -1081,20 +1081,20 @@
   },
   {
     "id": "136648788",
-    "name": "",
-    "race": "",
-    "level": "",
-    "class": "",
-    "subclass": "",
+    "name": "Ryzki Bizniz",
+    "race": "Goblin",
+    "level": 3,
+    "class": "Rogue",
+    "subclass": "Scout",
     "secondary_class": "",
     "secondary_subclass": "",
-    "gold": "",
+    "gold": 10,
     "status": "Inactive",
-    "avatar_url": "",
-    "exp": 15,
-    "games": 0,
-    "last_game": "-",
-    "buddies": "",
+    "avatar_url": "https://www.dndbeyond.com/avatars/45622/88/1581111423-136648788.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 22,
+    "games": 2,
+    "last_game": "18.12.2024",
+    "buddies": "Brummar, Elkas, Thoroth",
     "player": "Joe "
   },
   {
@@ -1148,7 +1148,7 @@
     "exp": 34,
     "games": 6,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Biara, Brock, Egor, Kycis, Kyrus, Nolan, Seamol, Sohalja, Trigul",
+    "buddies": "Alaris, Biara, Brock, Egor, Kycis, Kyrus, Nolan, Seamol, Sohalja, Thalwyn, Trigul",
     "player": "Moon "
   },
   {
@@ -1654,5 +1654,23 @@
     "last_game": "-",
     "buddies": "",
     "player": "Daniel "
+  },
+  {
+    "id": "144532528",
+    "name": "Celestina Ember Onyx",
+    "race": "Human",
+    "level": 5,
+    "class": "Sorcerer",
+    "subclass": "Draconic Bloodline",
+    "secondary_class": "",
+    "secondary_subclass": "",
+    "gold": 29,
+    "status": "Inactive",
+    "avatar_url": "https://www.dndbeyond.com/avatars/48470/291/1581111423-144532528.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 50,
+    "games": 0,
+    "last_game": "-",
+    "buddies": "",
+    "player": "Joe "
   }
 ]
