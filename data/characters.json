@@ -1636,5 +1636,23 @@
     "last_game": "-",
     "buddies": "",
     "player": "Benny der Bär "
+  },
+  {
+    "id": "144410165",
+    "name": "Maravor Katho Elananathi",
+    "race": "Goliath",
+    "level": 3,
+    "class": "Wizard",
+    "subclass": "War Magic",
+    "secondary_class": "",
+    "secondary_subclass": "",
+    "gold": 10,
+    "status": "Inactive",
+    "avatar_url": "https://www.dndbeyond.com/avatars/48421/722/1581111423-144410165.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 15,
+    "games": 0,
+    "last_game": "-",
+    "buddies": "",
+    "player": "Daniel "
   }
 ]
