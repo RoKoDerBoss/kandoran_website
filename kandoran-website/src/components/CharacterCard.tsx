@@ -74,7 +74,7 @@ const Header = ({
                 {/* Banner Container */}
                 <div className="flex items-center relative justify-between bg-gray-700 w-full h-auto">
                     {/* Dummy element */}
-                    <div className="invisible relative py-6 sm:py-8"></div>
+                    <div className="invisible relative py-7 sm:py-8"></div>
                     {/* Status Badge */}
                     <Badge 
                         variant="default" 
@@ -198,7 +198,7 @@ export const ClassBadge = ({
     return (
         <div className={`w-full ${containerClassName}`}>
             <div className="flex items-stretch justify-center -mr-2 sm:mr-0 -ml-2 sm:ml-0 transition-all duration-300">
-                <div className="flex items-stretch justify-center gap-1 sm:gap-2 p-1 sm:p-0 w-full min-w-full">
+                <div className={`flex items-stretch justify-center gap-1 sm:gap-2 p-1 sm:p-0 ${secondary_class ? "w-full" : "w-1/2"}`}>
                     <ClassBox class={Class} subclass={subclass} />
                     {secondary_class && <ClassBox class={secondary_class} subclass={secondary_subclass || ""} />}
                 </div>
@@ -360,52 +360,50 @@ export const CharacterCard: React.FC<CharacterCardProps> = ({
   } = character || {};
     
     return (
-        <div className="w-full max-w-xl">
-            <Card className="min-w-[265px] w-full p-2 bg-white overflow-hidden hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 -gap-4">
-                <CardContent className="-px-6 pt-6 bg-white">
-                    {/* Card Header with Status, Level, and Avatar */}
-                    {/* Banner */}
-                    <Header 
-                        level={level} 
-                        status={status} 
-                        containerClassName="mb-2 sm:mb-4" />
-                    {/* Avatar */}
-                    <AvatarBadge 
-                        id={id}
-                        avatar_url={avatar_url}
-                        containerClassName="mb-1 sm:mb-2 -mt-10 sm:-mt-16" />
-                    {/* Name & Race */}
-                    <NameRaceBadge 
-                        name={name} 
-                        race={race} 
-                        containerClassName="mb-1 sm:mb-2" />
-                    {/* Class Badge */}
-                    <ClassBadge 
-                        class={Class} 
-                        subclass={subclass} 
-                        secondary_class={secondary_class} 
-                        secondary_subclass={secondary_subclass} 
-                        containerClassName="mb-1 sm:mb-2" />
-                    {/* Stats Badge */}
-                    <StatsBadge 
-                        games={games} 
-                        exp={exp} 
-                        gold={gold} 
-                        containerClassName="-mb-0 sm:-mb-2" />
-                    {/* Last Game & Buddies */}
-                    <BuddiesSection 
-                        lastGame={last_game} 
-                        buddies={buddies} 
-                        onBuddyClick={() => {}} 
-                        containerClassName="mt-1 sm:mt-2 -mb-1 sm:-mb-2" />
-                </CardContent>
-                <CardFooter className="flex items-center justify-center border-t border-gray-200 mt-2 mb-1">
-                    {/* Player Name */}
-                    <div className="flex items-center justify-center w-full">
-                        <span className="text-xs sm:text-sm font-medium text-gray-800 transition-all duration-300">Gespielt von: <span className="text-xs sm:text-sm font-bold text-purple-800 transition-all duration-300">{player}</span></span>
-                    </div>
-                </CardFooter>
-            </Card>
-        </div>
+        <Card className="min-w-[265px] max-w-[356px] w-full p-2 bg-white overflow-hidden hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 -gap-4">
+            <CardContent className="-px-6 pt-6 bg-white">
+                {/* Card Header with Status, Level, and Avatar */}
+                {/* Banner */}
+                <Header 
+                    level={level} 
+                    status={status} 
+                    containerClassName="mb-2 sm:mb-4" />
+                {/* Avatar */}
+                <AvatarBadge 
+                    id={id}
+                    avatar_url={avatar_url}
+                    containerClassName="mb-1 sm:mb-2 -mt-10 sm:-mt-16" />
+                {/* Name & Race */}
+                <NameRaceBadge 
+                    name={name} 
+                    race={race} 
+                    containerClassName="mb-1 sm:mb-2" />
+                {/* Class Badge */}
+                <ClassBadge 
+                    class={Class} 
+                    subclass={subclass} 
+                    secondary_class={secondary_class} 
+                    secondary_subclass={secondary_subclass} 
+                    containerClassName="mb-1 sm:mb-2" />
+                {/* Stats Badge */}
+                <StatsBadge 
+                    games={games} 
+                    exp={exp} 
+                    gold={gold} 
+                    containerClassName="-mb-0 sm:-mb-2" />
+                {/* Last Game & Buddies */}
+                <BuddiesSection 
+                    lastGame={last_game} 
+                    buddies={buddies} 
+                    onBuddyClick={() => {}} 
+                    containerClassName="mt-1 sm:mt-2 -mb-1 sm:-mb-2" />
+            </CardContent>
+            <CardFooter className="flex items-center justify-center border-t border-gray-200 mt-2 mb-1">
+                {/* Player Name */}
+                <div className="flex items-center justify-center w-full">
+                    <span className="text-xs sm:text-sm font-medium text-gray-800 transition-all duration-300">Gespielt von: <span className="text-xs sm:text-sm font-bold text-purple-800 transition-all duration-300">{player}</span></span>
+                </div>
+            </CardFooter>
+        </Card>
     )
 }
