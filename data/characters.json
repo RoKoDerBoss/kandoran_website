@@ -104,7 +104,7 @@
     "exp": 21,
     "games": 6,
     "last_game": "10.02.2025",
-    "buddies": "Alaris, Biara, Cortinus, Eliza, Elkas, Kasim, Kilgrin, Kwehli, Kyrus, Nolan, Ryuzo, Sohalja, Tralin, Xanvira",
+    "buddies": "Alaris, Biara, Cortinus, Eliza, Elkas, Kasim, Kilgrin, Kyrus, Nolan, Ryuzo, Sohalja, Tralin, Xanvira, ~~Kwehli~~",
     "player": "Onel "
   },
   {
@@ -140,7 +140,7 @@
     "exp": 49,
     "games": 25,
     "last_game": "07.04.2025",
-    "buddies": "Agis, Alva, Biara, Brindozh, Brogar, Brummar, Draxxion, Egor, Eliza, Elkas, Faris, Grygor, Hovas, Janosch, Kell, Kelvyr, Kilgrin, Kwehli, luciano, Nolan, Seamol, Sohalja, Sunny, Tamina, Trigul, Vitus, Weinflasche, Wrenn, Xanvira, Yeldan, Zarok, Zinner",
+    "buddies": "Agis, Alva, Biara, Brindozh, Brogar, Brummar, Draxxion, Egor, Eliza, Elkas, Faris, Grygor, Hovas, Janosch, Kell, Kelvyr, Kilgrin, luciano, Nolan, Seamol, Sohalja, Sunny, Tamina, Trigul, Vitus, Weinflasche, Wrenn, Xanvira, Yeldan, Zarok, Zinner, ~~Kwehli~~",
     "player": "Tizi "
   },
   {
@@ -374,7 +374,7 @@
     "exp": 27,
     "games": 7,
     "last_game": "22.11.2024",
-    "buddies": "Alaris, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Ryzki, Seamol, Sohalja, Thalwyn, Thaunea, Thoroth",
+    "buddies": "Alaris, Brock, Brummar, Eliza, Elkas, Hymni, Ryzki, Seamol, Sohalja, Thalwyn, Thaunea, Thoroth, ~~Kwehli~~",
     "player": "Zerodyme "
   },
   {
@@ -428,7 +428,7 @@
     "exp": 92,
     "games": 34,
     "last_game": "02.04.2025",
-    "buddies": "Agis, Alaris, Alva, Biara, Brogar, Brummar, Cortinus, Dain, Egor, Eliza, Elkas, Fenvys, Fern, Fex, Fraknak, Grygor, Hymni, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Klexs, Kovu, Kwehli, Kyrus, Lavinia, Pytor, Rogar, Ryuzo, Sohalja, Splinter, Tavas, Thalwyn, Thangrim, Thaunea, Thoroth, Thurkun, Trigul, Ultkar, Ves, Vraak, Xanvira, Yeldan, Yix",
+    "buddies": "Agis, Alaris, Alva, Biara, Brogar, Brummar, Cortinus, Dain, Egor, Eliza, Elkas, Fenvys, Fern, Fex, Fraknak, Grygor, Hymni, Janosch, Kasim, Kell, Kelvyr, Kilgrin, Klexs, Kovu, Kyrus, Lavinia, Pytor, Rogar, Ryuzo, Sohalja, Splinter, Tavas, Thalwyn, Thangrim, Thaunea, Thoroth, Thurkun, Trigul, Ultkar, Ves, Vraak, Xanvira, Yeldan, Yix, ~~Kwehli~~",
     "player": "Tizi "
   },
   {
@@ -554,7 +554,7 @@
     "exp": 17,
     "games": 3,
     "last_game": "10.01.2025",
-    "buddies": "Alaris, Brock, Elkas, Hymni, Kwehli, Ryuzo, Sohalja, Thaunea",
+    "buddies": "Alaris, Brock, Elkas, Hymni, Ryuzo, Sohalja, Thaunea, ~~Kwehli~~",
     "player": "Joe "
   },
   {
@@ -644,7 +644,7 @@
     "exp": 43,
     "games": 11,
     "last_game": "25.03.2025",
-    "buddies": "Biara, Brock, Brummar, Eliza, Elkas, Hymni, Kwehli, Kycis, Rogar, Ryuzo, Seamol, Sohalja, Thalwyn, Thangrim, Ultkar",
+    "buddies": "Biara, Brock, Brummar, Eliza, Elkas, Hymni, Kycis, Rogar, Ryuzo, Seamol, Sohalja, Thalwyn, Thangrim, Ultkar, ~~Kwehli~~",
     "player": "TuckTuck"
   },
   {
@@ -716,7 +716,7 @@
     "exp": 27,
     "games": 9,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Biara, Brock, Elkas, Fern, Hymni, Kwehli, Kycis, Ryuzo, Seamol, Thalwyn, Thangrim, Thaunea, Tralin, Ultkar, Yix",
+    "buddies": "Alaris, Biara, Brock, Elkas, Fern, Hymni, Kycis, Ryuzo, Seamol, Thalwyn, Thangrim, Thaunea, Tralin, Ultkar, Yix, ~~Kwehli~~",
     "player": "Gwen "
   },
   {
@@ -792,24 +792,6 @@
     "player": "Zerodyme "
   },
   {
-    "id": "124094926",
-    "name": "Kwehli Sarogama",
-    "race": "Human",
-    "level": 4,
-    "class": "Druid",
-    "subclass": "Spores",
-    "secondary_class": "",
-    "secondary_subclass": "",
-    "gold": 70,
-    "status": "Active",
-    "avatar_url": "https://www.dndbeyond.com/avatars/42178/809/1581111423-124094926.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 31,
-    "games": 4,
-    "last_game": "23.03.2025",
-    "buddies": "Alaris, Biara, Brock, Hymni, Seamol, Sohalja, Thalwyn, Tralin",
-    "player": "Leo "
-  },
-  {
     "id": "130909288",
     "name": "Hymni ",
     "race": "Kobold",
@@ -824,7 +806,7 @@
     "exp": 19,
     "games": 5,
     "last_game": "14.03.2025",
-    "buddies": "Alaris, Brock, Fern, Klexs, Kwehli, Sohalja, Thalwyn, Thoroth, Vraak",
+    "buddies": "Alaris, Brock, Fern, Klexs, Sohalja, Thalwyn, Thoroth, Vraak, ~~Kwehli~~",
     "player": "Sanji "
   },
   {
@@ -1202,7 +1184,7 @@
     "exp": 42,
     "games": 9,
     "last_game": "25.03.2025",
-    "buddies": "Alaris, Brock, Brummar, Draxxion, Eliza, Faris, Kwehli, Kycis, Kyrus, Nolan, Ryuzo, Seamol, Sohalja, Thurkun, Tralin, Vitus, Weinflasche, Zurgha",
+    "buddies": "Alaris, Brock, Brummar, Draxxion, Eliza, Faris, Kycis, Kyrus, Nolan, Ryuzo, Seamol, Sohalja, Thurkun, Tralin, Vitus, Weinflasche, Zurgha, ~~Kwehli~~",
     "player": "Birni "
   },
   {
