@@ -11,6 +11,7 @@ import {
   CommandGroup,
   CommandInput,
   CommandItem,
+  CommandList,
 } from "@/components/ui/command"
 import {
   Popover,
@@ -42,7 +43,7 @@ export function SearchCharacter({
 }: CharacterSearchProps) {
   const [open, setOpen] = React.useState(false)
   const [selectedCharacter, setSelectedCharacter] = React.useState<CharacterData | null>(null)
-  const [searchValue, setSearchValue] = React.useState("")
+  const [searchQuery, setSearchQuery] = React.useState("")
 
   // Create an array of valid character names for search
   const characterOptions = React.useMemo(() => 
@@ -57,6 +58,15 @@ export function SearchCharacter({
     [characters]
   )
 
+  // Filter character options based on search query
+  const filteredOptions = React.useMemo(() => {
+    if (!searchQuery.trim()) return characterOptions;
+    
+    return characterOptions.filter(option => 
+      option.label.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [characterOptions, searchQuery]);
+
   const handleSelect = React.useCallback((currentValue: string) => {
     const selected = characterOptions.find(option => option.value === currentValue)
     
@@ -64,57 +74,53 @@ export function SearchCharacter({
       setSelectedCharacter(selected.character)
       onSelect(selected.character)
       setOpen(false)
+    } else {
+      handleClear()
     }
   }, [characterOptions, onSelect])
   
   const handleClear = React.useCallback(() => {
     setSelectedCharacter(null)
-    setSearchValue("")
+    setSearchQuery("")
     onClear()
   }, [onClear])
 
-  // Handle search input change
-  const handleSearchChange = React.useCallback((value: string) => {
-    setSearchValue(value)
-  }, [])
-
   return (
-    <div className={cn("flex items-center space-x-1", className)}>
-      <div className="relative w-full">
-        <Popover open={open} onOpenChange={setOpen}>
-          <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              role="combobox"
-              aria-expanded={open}
-              className="w-full justify-between py-5 bg-white"
-            >
-              <div className="flex items-center">
-                <Search className="mr-2 h-4 w-4 text-purple-800" />
-                {selectedCharacter ? (
-                  <span className="truncate">{selectedCharacter.name}</span>
-                ) : (
-                  <span className="text-muted-foreground">{placeholder}</span>
-                )}
-              </div>
-              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-[300px] p-0">
-            <Command>
-              <CommandInput 
-                placeholder="Charaktername eingeben..." 
-                value={searchValue} 
-                onValueChange={handleSearchChange}
-              />
+    <div className={cn("flex-grow relative", className)}>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            role="combobox"
+            aria-expanded={open}
+            className="w-full justify-between bg-white py-5 hover:bg-white"
+          >
+            <div className="flex items-center">
+              <Search className="mr-2 h-4 w-4 text-purple-800" />
+              {selectedCharacter ? (
+                <span className="truncate">{selectedCharacter.name}</span>
+              ) : (
+                <span className="text-muted-foreground">{placeholder}</span>
+              )}
+            </div>
+            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-full p-0" align="start" alignOffset={0}>
+          <Command shouldFilter={false}>
+            <CommandInput 
+              placeholder="Charaktername eingeben..." 
+              value={searchQuery}
+              onValueChange={setSearchQuery}
+            />
+            <CommandList>
               <CommandEmpty>Kein Charakter gefunden.</CommandEmpty>
-              <CommandGroup className="max-h-60 overflow-y-auto">
-                {characterOptions.map((option) => (
+              <CommandGroup>
+                {filteredOptions.map((option) => (
                   <CommandItem
                     key={option.value}
                     value={option.value}
                     onSelect={handleSelect}
-                    className="cursor-pointer"
                   >
                     <Check
                       className={cn(
@@ -128,17 +134,17 @@ export function SearchCharacter({
                   </CommandItem>
                 ))}
               </CommandGroup>
-            </Command>
-          </PopoverContent>
-        </Popover>
-      </div>
-      
+            </CommandList>
+          </Command>
+        </PopoverContent>
+      </Popover>
+
       {selectedCharacter && (
         <Button 
           variant="ghost" 
           size="icon" 
           onClick={handleClear}
-          className="h-9 w-9 rounded-full p-0"
+          className="h-9 w-9 rounded-full p-0 absolute right-2 top-1/2 transform -translate-y-1/2"
         >
           <X className="h-4 w-4" />
         </Button>

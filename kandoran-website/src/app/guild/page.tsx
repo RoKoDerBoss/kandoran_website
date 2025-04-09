@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useCharacters } from '@/hooks/useCharacters';
 import { NavBar } from "@/components/ui/NavBar";
-import { CharacterCard } from "@/components/ui/CharacterCard";
+import { CharacterCard } from "@/components/CharacterCard";
 import CharacterCardSkeleton from "@/components/ui/CharacterCardSkeleton";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { 
@@ -16,6 +16,7 @@ import {
   SelectValue 
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   SortAsc,
   SortDesc,
@@ -25,7 +26,8 @@ import {
   User2,
   BookText,
   PieChart,
-  SquareUserRound
+  SquareUserRound,
+  LayoutGrid
 } from 'lucide-react';
 import { SearchCharacter } from "@/components/SearchCharacter";
 
@@ -106,30 +108,9 @@ const sortCharacters = (characters: CharacterData[], sortBy: SortBy) => {
 
 // Grid layout for different card sizes
 const gridConfig = {
-  sm: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6',
-  md: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5',
-  lg: 'grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-};
-
-// Icons for controls
-const controlIcons = {
-  groupBy: {
-    none: Filter,
-    class: BookText,
-    level: Layers3,
-    status: PieChart,
-  },
-  sortBy: {
-    alphabet: SortAsc,
-    level: Layers3,
-    exp: SortDesc,
-    status: User2,
-  },
-  cardSize: {
-    sm: SquareUserRound,
-    md: SquareUserRound,
-    lg: SquareUserRound
-  }
+  sm: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5',
+  md: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+  lg: 'grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'
 };
 
 export default function Guild({ size = "md" }: GuildProps) {
@@ -139,6 +120,7 @@ export default function Guild({ size = "md" }: GuildProps) {
   const [cardSize, setCardSize] = useState<CardSize>(size as CardSize);
   const [activeMemorials, setActiveMemorials] = useState<boolean>(true);
   const [selectedCharacter, setSelectedCharacter] = useState<CharacterData | null>(null);
+  const [showInactive, setShowInactive] = useState<boolean>(true);
   
   // Get characters data
   const { characters: fetchedCharacters, isLoading, error } = useCharacters();
@@ -176,19 +158,21 @@ export default function Guild({ size = "md" }: GuildProps) {
 
   // Apply the search filter in addition to status filters
   const activeInactiveChars = filterBySearch(
-    characters.filter((c: CharacterData) => c.status === 'Active' || c.status === 'Inactive') || []
+    characters.filter((c: CharacterData) => {
+      if (c.status === 'Active') return true;
+      if (c.status === 'Inactive') return showInactive;
+      return false;
+    }) || []
   );
-  const deadChars = filterBySearch(
-    characters.filter((c: CharacterData) => c.status === 'Dead') || []
-  );
+
+  // Dead characters are just filtered without grouping/sorting
+  const deadChars = characters.filter((c: CharacterData) => c.status === 'Dead') || [];
   
   // Sort characters first
   const sortedActiveInactive = sortCharacters(activeInactiveChars, sortBy);
-  const sortedDead = sortCharacters(deadChars, sortBy);
   
   // Then group them
   const groupedActiveInactive = groupCharacters(sortedActiveInactive, groupBy);
-  const groupedDead = groupCharacters(sortedDead, groupBy);
   
   // Set default sort based on group
   const handleGroupChange = (value: GroupBy) => {
@@ -200,7 +184,7 @@ export default function Guild({ size = "md" }: GuildProps) {
         setSortBy('alphabet');
         break;
       case 'level':
-        setSortBy('level');
+        setSortBy('exp');
         break;
       case 'class':
         setSortBy('level');
@@ -218,6 +202,7 @@ export default function Guild({ size = "md" }: GuildProps) {
     setGroupBy('level');
     setSortBy('level');
     setCardSize('md');
+    setShowInactive(true);
   };
   
   // Handle buddy click
@@ -228,11 +213,6 @@ export default function Guild({ size = "md" }: GuildProps) {
 
   // Animation classes
   const fadeInClass = "animate-in fade-in slide-in-from-bottom-4 duration-500";
-  
-  // Get the current group by icon
-  const GroupByIcon = controlIcons.groupBy[groupBy];
-  const SortByIcon = controlIcons.sortBy[sortBy];
-  const CardSizeIcon = controlIcons.cardSize[cardSize];
 
   return (
     <>
@@ -249,15 +229,15 @@ export default function Guild({ size = "md" }: GuildProps) {
           <div className="flex flex-wrap md:flex-nowrap items-center gap-3">
             {/* Group By */}
             <div className="flex items-center">
-              <GroupByIcon className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
-              <Select value={groupBy} onValueChange={(value) => handleGroupChange(value as GroupBy)}>
-                <SelectTrigger className="w-[160px]">
+              <Filter className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
+              <Select value={groupBy} onValueChange={(value: string) => handleGroupChange(value as GroupBy)}>
+                <SelectTrigger className="w-[140px]">
                   <SelectValue placeholder="Gruppieren nach..." />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Gruppieren nach</SelectLabel>
-                    <SelectItem value="none">Keine Gruppierung</SelectItem>
+                    <SelectItem value="none">Name</SelectItem>
                     <SelectItem value="class">Klasse</SelectItem>
                     <SelectItem value="level">Level</SelectItem>
                     <SelectItem value="status">Status</SelectItem>
@@ -268,9 +248,9 @@ export default function Guild({ size = "md" }: GuildProps) {
             
             {/* Sort By */}
             <div className="flex items-center">
-              <SortByIcon className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
-              <Select value={sortBy} onValueChange={(value) => setSortBy(value as SortBy)}>
-                <SelectTrigger className="w-[160px]">
+              <SortDesc className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
+              <Select value={sortBy} onValueChange={(value: string) => setSortBy(value as SortBy)}>
+                <SelectTrigger className="w-[140px]">
                   <SelectValue placeholder="Sortieren nach..." />
                 </SelectTrigger>
                 <SelectContent>
@@ -287,17 +267,17 @@ export default function Guild({ size = "md" }: GuildProps) {
             
             {/* Card Size */}
             <div className="flex items-center">
-              <CardSizeIcon className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
-              <Select value={cardSize} onValueChange={(value) => setCardSize(value as CardSize)}>
-                <SelectTrigger className="w-[160px]">
-                  <SelectValue placeholder="Kartengröße..." />
+              <SquareUserRound className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
+              <Select value={cardSize} onValueChange={(value: string) => setCardSize(value as CardSize)}>
+                <SelectTrigger className="w-[65px]">
+                  <SelectValue placeholder="Charaktergröße..." />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Kartengröße</SelectLabel>
-                    <SelectItem value="sm">Klein (6 pro Reihe)</SelectItem>
-                    <SelectItem value="md">Mittel (5 pro Reihe)</SelectItem>
-                    <SelectItem value="lg">Groß (4 pro Reihe)</SelectItem>
+                    <SelectItem value="sm">S</SelectItem>
+                    <SelectItem value="md">M</SelectItem>
+                    <SelectItem value="lg">L</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -311,6 +291,23 @@ export default function Guild({ size = "md" }: GuildProps) {
                 onClear={handleClearSearch}
                 placeholder="Nach Charakter suchen..."
               />
+            </div>
+            
+            {/* Show/Hide Inactive Characters Checkbox */}
+            <div className="flex items-center">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="show-inactive"
+                  checked={showInactive}
+                  onCheckedChange={(checked) => setShowInactive(checked as boolean)}
+                />
+                <label 
+                  htmlFor="show-inactive" 
+                  className="text-sm text-gray-700 cursor-pointer select-none"
+                >
+                  Inaktive anzeigen
+                </label>
+              </div>
             </div>
             
             {/* Reset Button - Icon only */}
@@ -368,18 +365,15 @@ export default function Guild({ size = "md" }: GuildProps) {
                     <h3 className="text-xl font-semibold text-gray-800 border-b pb-2">{group}</h3>
                   )}
                   
-                  {/* Characters Grid */}
-                  <div className={`grid ${gridConfig[cardSize]} gap-3`}>
-                    {chars.map((character, charIndex) => (
+                  {/* Characters Grid - Using flexbox instead of grid */}
+                  <div className="flex flex-wrap -mx-2 w-full bg-green-100">
+                    {chars.map((character: CharacterData, index: number) => (
                       <div 
-                        key={character.id || charIndex} 
-                        className="transition-all duration-500 ease-in-out transform opacity-100 hover:z-10"
-                        style={{ animationDelay: `${(groupIndex * 5 + charIndex) * 50}ms` }}
+                        key={character.id || index} 
+                        className="bg-red-200 mr-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 transition-all duration-500"
                       >
                         <CharacterCard 
-                          character={character} 
-                          size={cardSize}
-                          onBuddyClick={handleBuddyClick}
+                          character={character}
                           className="h-full"
                         />
                       </div>
@@ -396,45 +390,29 @@ export default function Guild({ size = "md" }: GuildProps) {
           <div className="w-full">
             <div className="border-t border-gray-300 w-full my-8"></div>
             
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-left mb-6">
               <h2 className="text-2xl font-semibold text-gray-600">Esche der Erinnerungen</h2>
-              <Button
-                variant="ghost"
-                onClick={() => setActiveMemorials(!activeMemorials)}
-                className="text-gray-500"
-              >
-                {activeMemorials ? 'Ausblenden' : 'Einblenden'}
-              </Button>
             </div>
             
             {activeMemorials && (
               <div className="w-full bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200 space-y-8">
-                {Object.entries(groupedDead).map(([group, chars], groupIndex) => (
-                  <div key={group} className={`${fadeInClass} space-y-4`} style={{ animationDelay: `${groupIndex * 100}ms` }}>
-                    {/* Group Title (only if grouped) */}
-                    {groupBy !== 'none' && (
-                      <h3 className="text-xl font-semibold text-gray-700 border-b border-gray-300 pb-2">{group}</h3>
-                    )}
-                    
-                    {/* Dead Characters Grid */}
-                    <div className={`grid ${gridConfig[cardSize]} gap-3`}>
-                      {chars.map((character, charIndex) => (
-                        <div 
-                          key={character.id || charIndex} 
-                          className="transition-all duration-500 ease-in-out transform opacity-90 saturate-[60%] hover:saturate-100 hover:opacity-100"
-                          style={{ animationDelay: `${(groupIndex * 5 + charIndex) * 50}ms` }}
-                        >
-                          <CharacterCard 
-                            character={character} 
-                            size={cardSize}
-                            onBuddyClick={handleBuddyClick}
-                            className="h-full"
-                          />
-                        </div>
-                      ))}
-                    </div>
+                <div className={`${fadeInClass} space-y-4`}>
+                  {/* Dead Characters Grid - Now using flexbox */}
+                  <div className="flex flex-wrap -mx-2">
+                    {deadChars.map((character: CharacterData, charIndex: number) => (
+                      <div 
+                        key={character.id || charIndex} 
+                        className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2 transition-all duration-500 opacity-90 saturate-[60%] hover:saturate-100 hover:opacity-100"
+                        style={{ animationDelay: `${charIndex * 50}ms` }}
+                      >
+                        <CharacterCard 
+                          character={character} 
+                          className="h-full"
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
             )}
           </div>
