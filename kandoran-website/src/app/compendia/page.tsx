@@ -28,7 +28,7 @@ export default function Compendia() {
     "level": 8,
     "class": "Paladin",
     "subclass": "Glory",
-    "secondary_class": "Barbarian",
+    "secondary_class": "",
     "secondary_subclass": "",
     "gold": 104,
     "status": "Active",
@@ -55,10 +55,10 @@ export default function Compendia() {
           <p className="mb-4">
             This page will contain references, guides, and information about the Kandoran universe.
           </p>
-          <div className="flex flex-col sm:grid sm:grid-cols-3 gap-3">
+          <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3">
             <CharacterCard character={character}/>
             <CharacterCard character={character2}/>
-            <CharacterCard character={character2}/>
+            
           </div>
         </div>
       </div>
