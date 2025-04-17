@@ -30,20 +30,40 @@ interface CharacterSearchProps {
   characters: CharacterData[];
   onSelect: (character: CharacterData) => void;
   onClear: () => void;
+  onMultiSelect?: (characters: CharacterData[]) => void;
+  selectedCharacters?: CharacterData[];
   placeholder?: string;
   className?: string;
+  resetKey?: number;
 }
 
 export function SearchCharacter({
   characters,
   onSelect,
   onClear,
+  onMultiSelect,
+  selectedCharacters = [],
   placeholder = "Suche nach Charakteren...",
   className,
+  resetKey = 0,
 }: CharacterSearchProps) {
   const [open, setOpen] = React.useState(false)
-  const [selectedCharacter, setSelectedCharacter] = React.useState<CharacterData | null>(null)
   const [searchQuery, setSearchQuery] = React.useState("")
+  const [internalSelectedCharacters, setInternalSelectedCharacters] = 
+    React.useState<CharacterData[]>(selectedCharacters)
+
+  // Use external or internal selected characters based on which is provided
+  const effectiveSelectedCharacters = selectedCharacters.length > 0 
+    ? selectedCharacters 
+    : internalSelectedCharacters
+
+  // Reset search when resetKey changes
+  React.useEffect(() => {
+    if (resetKey > 0) {
+      setSearchQuery("");
+      setInternalSelectedCharacters([]);
+    }
+  }, [resetKey]);
 
   // Create an array of valid character names for search
   const characterOptions = React.useMemo(() => 
@@ -71,19 +91,64 @@ export function SearchCharacter({
     const selected = characterOptions.find(option => option.value === currentValue)
     
     if (selected) {
-      setSelectedCharacter(selected.character)
-      onSelect(selected.character)
-      setOpen(false)
+      // Check if already selected
+      const isAlreadySelected = effectiveSelectedCharacters.some(
+        c => c.id === selected.character.id
+      )
+
+      if (isAlreadySelected) {
+        // Remove from selection
+        const newSelected = effectiveSelectedCharacters.filter(
+          c => c.id !== selected.character.id
+        )
+        
+        if (onMultiSelect) {
+          onMultiSelect(newSelected)
+        } else {
+          setInternalSelectedCharacters(newSelected)
+        }
+
+        // If we just removed the last item, also call onClear
+        if (newSelected.length === 0) {
+          onClear()
+        }
+      } else {
+        // Add to selection
+        const newSelected = [...effectiveSelectedCharacters, selected.character]
+        
+        if (onMultiSelect) {
+          onMultiSelect(newSelected)
+        } else {
+          setInternalSelectedCharacters(newSelected)
+        }
+        
+        // Also call onSelect for backward compatibility
+        onSelect(selected.character)
+      }
     } else {
       handleClear()
     }
-  }, [characterOptions, onSelect])
+  }, [characterOptions, effectiveSelectedCharacters, onSelect, onMultiSelect, onClear])
   
   const handleClear = React.useCallback(() => {
-    setSelectedCharacter(null)
     setSearchQuery("")
+    
+    if (onMultiSelect) {
+      onMultiSelect([])
+    } else {
+      setInternalSelectedCharacters([])
+    }
+    
     onClear()
-  }, [onClear])
+  }, [onClear, onMultiSelect])
+
+  // Get display text for selected characters
+  const selectedDisplayText = React.useMemo(() => {
+    if (effectiveSelectedCharacters.length === 0) return "";
+    if (effectiveSelectedCharacters.length === 1) return effectiveSelectedCharacters[0].name;
+    if (effectiveSelectedCharacters.length === 2) return `${effectiveSelectedCharacters[0].name} & ${effectiveSelectedCharacters[1].name}`;
+    return `${effectiveSelectedCharacters[0].name}, ${effectiveSelectedCharacters[1].name} & ${effectiveSelectedCharacters.length - 2} weitere ausgewählt`;
+  }, [effectiveSelectedCharacters])
 
   return (
     <div className={cn("flex-grow relative", className)}>
@@ -93,17 +158,17 @@ export function SearchCharacter({
             variant="outline"
             role="combobox"
             aria-expanded={open}
-            className="w-full justify-between bg-white py-5 hover:bg-white"
+            className="w-full justify-between bg-white py-5 hover:bg-purple-50"
           >
             <div className="flex items-center">
               <Search className="mr-2 h-4 w-4 text-purple-800" />
-              {selectedCharacter ? (
-                <span className="truncate">{selectedCharacter.name}</span>
+              {effectiveSelectedCharacters.length > 0 ? (
+                <span className="truncate">{selectedDisplayText}</span>
               ) : (
                 <span className="text-muted-foreground">{placeholder}</span>
               )}
             </div>
-            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            <ChevronsUpDown className={`ml-2 h-4 w-4 shrink-0 ${effectiveSelectedCharacters.length > 0 ? 'opacity-0' : 'opacity-50'}`} />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-full p-0" align="start" alignOffset={0}>
@@ -116,30 +181,35 @@ export function SearchCharacter({
             <CommandList>
               <CommandEmpty>Kein Charakter gefunden.</CommandEmpty>
               <CommandGroup>
-                {filteredOptions.map((option) => (
-                  <CommandItem
-                    key={option.value}
-                    value={option.value}
-                    onSelect={handleSelect}
-                  >
-                    <Check
-                      className={cn(
-                        "mr-2 h-4 w-4",
-                        selectedCharacter?.id === option.character.id
-                          ? "opacity-100"
-                          : "opacity-0"
-                      )}
-                    />
-                    {option.label}
-                  </CommandItem>
-                ))}
+                {filteredOptions.map((option) => {
+                  const isSelected = effectiveSelectedCharacters.some(
+                    c => c.id === option.character.id
+                  )
+                  
+                  return (
+                    <CommandItem
+                      key={option.value}
+                      value={option.value}
+                      onSelect={handleSelect}
+                      className={isSelected ? "bg-purple-50" : ""}
+                    >
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          isSelected ? "opacity-100" : "opacity-0"
+                        )}
+                      />
+                      {option.label}
+                    </CommandItem>
+                  )
+                })}
               </CommandGroup>
             </CommandList>
           </Command>
         </PopoverContent>
       </Popover>
 
-      {selectedCharacter && (
+      {effectiveSelectedCharacters.length > 0 && (
         <Button 
           variant="ghost" 
           size="icon" 

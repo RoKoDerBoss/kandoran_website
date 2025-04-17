@@ -46,13 +46,12 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #FCF5E5; 
+  --background: #F2F2F2; 
   --foreground: #2F2F2F;
   --card: var(--gray-50);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  
   --primary-lightest: #f5f3ff;
   --primary-lighter: #D6CFDE;
   --primary-light: #72588E;
@@ -62,7 +61,6 @@
   --primary-darkest: #10051C;
   --primary-glow: #7c3aed;
   --primary-foreground: oklch(0.985 0 0);
-  
   --accent-lightest: #FFF9E5;
   --accent-lighter: #FFEAB3;
   --accent-light: #FFD54C;

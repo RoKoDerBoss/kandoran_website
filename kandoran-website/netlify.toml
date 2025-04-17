@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = "kandoran-website/.next"
+  
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Edge Functions required for API Routes
+[functions]
+  directory = ".netlify/edge-functions"
+
+# Configure caching headers for data files
+[[headers]]
+  for = "/api/characters"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, s-maxage=14400"

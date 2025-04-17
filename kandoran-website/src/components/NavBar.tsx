@@ -10,7 +10,7 @@ import {
 
 export function NavBar() {
   return (
-    <div className="flex justify-between items-center w-full p-1 pr-10 border-b border-gray-200 bg-gray-100">
+    <div className="flex justify-between items-center w-full p-1 pr-10 border-b border-gray-100 bg-purple-50">
       <div className="flex ms-6">
         <Image src="/logo.svg" alt="" width={60} height={60} className="svg-color-foreground"/>
         <Image src="/logo2.svg" alt="" width={120} height={120} className="mt-4 svg-color-foreground"/>

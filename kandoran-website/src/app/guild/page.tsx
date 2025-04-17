@@ -1,35 +1,13 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { useCharacters } from '@/hooks/useCharacters';
-import { NavBar } from "@/components/ui/NavBar";
-import { CharacterCard } from "@/components/CharacterCard";
-import CharacterCardSkeleton from "@/components/ui/CharacterCardSkeleton";
+import { NavBar } from "@/components/NavBar";
+import { CharacterCard } from "@/components/CharacterCard/CharacterCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
-import { 
-  Select, 
-  SelectContent, 
-  SelectGroup, 
-  SelectItem, 
-  SelectLabel, 
-  SelectTrigger, 
-  SelectValue 
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  SortAsc,
-  SortDesc,
-  RefreshCw,
-  Layers3,
-  Filter,
-  User2,
-  BookText,
-  PieChart,
-  SquareUserRound,
-  LayoutGrid
-} from 'lucide-react';
-import { SearchCharacter } from "@/components/SearchCharacter";
+import GuildControls from "@/components/GuildControls";
+import CharacterGroup from "@/components/CharacterGroup";
+import VirtualizedCharacterList from "@/components/VirtualizedCharacterList";
 
 // Types
 type CharacterData = {
@@ -51,18 +29,19 @@ type CharacterData = {
   avatar_url?: string;
 };
 
-type GroupBy = 'none' | 'class' | 'level' | 'status';
+// Type for player data
+type PlayerData = {
+  name: string;
+  characterCount: number;
+};
+
+type GroupBy = 'name' | 'class' | 'level' | 'status';
 type SortBy = 'alphabet' | 'level' | 'exp' | 'status';
-type CardSize = 'sm' | 'md' | 'lg';
 
-// Interface for props
-interface GuildProps {
-  size?: CardSize;
-}
 
-// Helper functions
+// Helper functions - memoizing expensive operations
 const groupCharacters = (characters: CharacterData[], groupBy: GroupBy) => {
-  if (groupBy === 'none') return { 'All Characters': characters };
+  if (groupBy === 'name') return { 'All Characters': characters };
 
   return characters.reduce((groups: Record<string, CharacterData[]>, character) => {
     const key = (() => {
@@ -86,133 +65,280 @@ const groupCharacters = (characters: CharacterData[], groupBy: GroupBy) => {
   }, {});
 };
 
-const sortCharacters = (characters: CharacterData[], sortBy: SortBy) => {
+const sortCharacters = (characters: CharacterData[], sortBy: SortBy, isAscending: boolean) => {
   return [...characters].sort((a, b) => {
+    let comparison = 0;
+    
     switch (sortBy) {
       case 'alphabet':
-        return (a.name || '').localeCompare(b.name || '');
+        comparison = (a.name || '').localeCompare(b.name || '');
+        break;
       case 'level':
-        return (b.level || 0) - (a.level || 0);
+        comparison = (a.exp || 0) - (b.exp || 0);
+        break;
       case 'exp':
-        return (b.exp || 0) - (a.exp || 0);
+        comparison = (a.exp || 0) - (b.exp || 0);
+        break;
       case 'status':
         // Order: Active, Inactive, Dead
         const statusOrder = { 'Active': 0, 'Inactive': 1, 'Dead': 2 };
-        return (statusOrder[a.status as keyof typeof statusOrder] || 3) - 
-               (statusOrder[b.status as keyof typeof statusOrder] || 3);
+        comparison = (statusOrder[a.status as keyof typeof statusOrder] || 3) - 
+                   (statusOrder[b.status as keyof typeof statusOrder] || 3);
+        break;
       default:
         return 0;
     }
+    
+    // For numerical values (level, exp), we default to descending order,
+    // but for string values (alphabet, status), we default to ascending
+    const isNumericSort = sortBy === 'level' || sortBy === 'exp';
+    
+    // Apply the default direction first (descending for numbers)
+    if (isNumericSort) {
+      comparison = -comparison;
+    }
+    
+    // Then apply the user-selected direction
+    return isAscending ? -comparison : comparison;
   });
 };
 
-// Grid layout for different card sizes
-const gridConfig = {
-  sm: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5',
-  md: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
-  lg: 'grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'
-};
-
-export default function Guild({ size = "md" }: GuildProps) {
-  // State
+export default function Guild({}) {
+  // State management with explicit types
   const [groupBy, setGroupBy] = useState<GroupBy>('level');
-  const [sortBy, setSortBy] = useState<SortBy>('level');
-  const [cardSize, setCardSize] = useState<CardSize>(size as CardSize);
-  const [activeMemorials, setActiveMemorials] = useState<boolean>(true);
-  const [selectedCharacter, setSelectedCharacter] = useState<CharacterData | null>(null);
+  const [sortBy, setSortBy] = useState<SortBy>('exp');
+  const [isAscending, setIsAscending] = useState<boolean>(false); // Default to false (natural order)
+  const [selectedCharacters, setSelectedCharacters] = useState<CharacterData[]>([]); // For character search
+  const [selectedPlayers, setSelectedPlayers] = useState<PlayerData[]>([]); // For player search
   const [showInactive, setShowInactive] = useState<boolean>(true);
+  const [searchResetKey, setSearchResetKey] = useState<number>(0); // Add reset key for search
   
-  // Get characters data
-  const { characters: fetchedCharacters, isLoading, error } = useCharacters();
+  // Get characters data - using optimized hook with local storage caching
+  const { characters, isLoading, error, refetch } = useCharacters();
   
-  // Validate characters - ensure they have required fields
-  const validateCharacter = (char: CharacterData): boolean => {
-    return Boolean(
-      char && 
-      char.name && 
-      char.level && 
-      char.class && 
-      char.status && 
-      typeof char.level === 'number'
+  // Determine default sort direction
+  const getDefaultSortDirection = useCallback((): boolean => {
+    // We always return false to maintain natural order
+    return false;
+  }, []);
+  
+  // Memoized event handlers to prevent unnecessary recreations
+  // Keep single-select for backwards compatibility
+  const handleCharacterSelect = useCallback((character: CharacterData) => {
+    setSelectedCharacters(prev => {
+      // If already selected, don't add it again
+      if (prev.some(c => c.id === character.id)) return prev;
+      return [...prev, character];
+    });
+    
+    // Clear any player selections
+    setSelectedPlayers([]);
+    
+    // Automatically set groupBy to 'name' when searching
+    if (groupBy !== 'name') {
+      setGroupBy('name');
+    }
+  }, [groupBy]);
+
+  // New handler for multi-select
+  const handleMultiCharacterSelect = useCallback((characters: CharacterData[]) => {
+    setSelectedCharacters(characters);
+    
+    // Clear any player selections
+    setSelectedPlayers([]);
+    
+    // Only set groupBy to 'name' if characters are selected and not already grouped by name
+    if (characters.length > 0 && groupBy !== 'name') {
+      setGroupBy('name');
+    }
+  }, [groupBy]);
+
+  // Player selection handlers
+  const handlePlayerSelect = useCallback((player: PlayerData) => {
+    setSelectedPlayers(prev => {
+      // If already selected, don't add it again
+      if (prev.some(p => p.name === player.name)) return prev;
+      return [...prev, player];
+    });
+    
+    // Clear any character selections
+    setSelectedCharacters([]);
+    
+    // Set groupBy to 'name' when selecting players
+    if (groupBy !== 'name') {
+      setGroupBy('name');
+    }
+  }, [groupBy]);
+
+  // Multiple player selection
+  const handleMultiPlayerSelect = useCallback((players: PlayerData[]) => {
+    setSelectedPlayers(players);
+    
+    // Clear any character selections
+    setSelectedCharacters([]);
+    
+    // Set groupBy to 'name' when selecting players (if players are selected)
+    if (players.length > 0 && groupBy !== 'name') {
+      setGroupBy('name');
+    }
+  }, [groupBy]);
+
+  // Clear player selection
+  const handlePlayerClear = useCallback(() => {
+    setSelectedPlayers([]);
+    
+    // Also reset grouping to level
+    setGroupBy('level');
+  }, []);
+
+  const handleClearSearch = useCallback(() => {
+    setSelectedCharacters([]);
+    
+    // When clearing the selection, reset grouping to level
+    setGroupBy('level');
+  }, []);
+  
+  // Memoize filter by search function - now handles player selections too
+  const filterBySearch = useCallback((chars: CharacterData[]) => {
+    // Handle character selection
+    if (selectedCharacters.length > 0) {
+      const selectedIds = new Set(selectedCharacters.map(c => c.id));
+      return chars.filter(char => selectedIds.has(char.id));
+    }
+    
+    // Handle player selection
+    if (selectedPlayers.length > 0) {
+      const selectedPlayerNames = new Set(selectedPlayers.map(p => p.name));
+      return chars.filter(char => char.player && selectedPlayerNames.has(char.player));
+    }
+    
+    return chars;
+  }, [selectedCharacters, selectedPlayers]);
+
+  // Memoize expensive computations to avoid recalculation on every render
+  const activeInactiveChars = useMemo(() => {
+    // If no search selections, apply normal filtering
+    if (selectedCharacters.length === 0 && selectedPlayers.length === 0) {
+      return (characters || []).filter((c: CharacterData) => {
+        if (c.status === 'Active') return true;
+        if (c.status === 'Inactive') return showInactive;
+        return false;
+      });
+    } 
+    
+    // With search selections, only filter by search and apply the status filter
+    return filterBySearch(
+      (characters || []).filter((c: CharacterData) => {
+        // Always include selected characters regardless of status (for search flexibility)
+        const isSelectedChar = selectedCharacters.some(sc => sc.id === c.id);
+        const isSelectedPlayer = c.player && selectedPlayers.some(sp => sp.name === c.player);
+        if (isSelectedChar || isSelectedPlayer) return true;
+        
+        // Otherwise apply normal filters
+        if (c.status === 'Active') return true;
+        if (c.status === 'Inactive') return showInactive;
+        return false;
+      })
     );
-  };
+  }, [characters, showInactive, filterBySearch, selectedCharacters, selectedPlayers]);
 
-  // Filter out invalid characters
-  const characters = fetchedCharacters?.filter(validateCharacter) || [];
-  
-  // Handle character selection
-  const handleCharacterSelect = (character: CharacterData) => {
-    setSelectedCharacter(character);
-  };
-
-  // Handle clearing the search
-  const handleClearSearch = () => {
-    setSelectedCharacter(null);
-  };
-
-  // Filter characters if search is active
-  const filterBySearch = (chars: CharacterData[]) => {
-    if (!selectedCharacter) return chars;
-    return chars.filter(char => char.id === selectedCharacter.id);
-  };
-
-  // Apply the search filter in addition to status filters
-  const activeInactiveChars = filterBySearch(
-    characters.filter((c: CharacterData) => {
-      if (c.status === 'Active') return true;
-      if (c.status === 'Inactive') return showInactive;
-      return false;
-    }) || []
+  const sortedActiveInactive = useMemo(() => 
+    sortCharacters(activeInactiveChars, sortBy, isAscending),
+    [activeInactiveChars, sortBy, isAscending]
   );
-
-  // Dead characters are just filtered without grouping/sorting
-  const deadChars = characters.filter((c: CharacterData) => c.status === 'Dead') || [];
   
-  // Sort characters first
-  const sortedActiveInactive = sortCharacters(activeInactiveChars, sortBy);
+  const groupedActiveInactive = useMemo(() => 
+    groupCharacters(sortedActiveInactive, groupBy),
+    [sortedActiveInactive, groupBy]
+  );
   
-  // Then group them
-  const groupedActiveInactive = groupCharacters(sortedActiveInactive, groupBy);
+  const deadChars = useMemo(() => {
+    // Check if any selected characters are dead
+    const selectedDeadCharIds = selectedCharacters
+      .filter(c => c.status === 'Dead')
+      .map(c => c.id);
+    
+    // Check if any selected players have dead characters
+    const selectedPlayerNames = selectedPlayers.map(p => p.name);
+    
+    // If search is active and there are dead characters selected, show only those
+    if ((selectedCharacters.length > 0 && selectedDeadCharIds.length > 0) ||
+        selectedPlayers.length > 0) {
+      
+      return (characters || [])
+        .filter((c: CharacterData) => {
+          if (c.status !== 'Dead') return false;
+          
+          // Include if character is selected
+          if (selectedDeadCharIds.includes(c.id)) return true;
+          
+          // Include if character's player is selected
+          if (c.player && selectedPlayerNames.includes(c.player)) return true;
+          
+          // Otherwise don't include
+          return selectedCharacters.length === 0 && selectedPlayers.length === 0;
+        });
+    }
+    
+    // Otherwise show all dead characters
+    return (characters || []).filter((c: CharacterData) => c.status === 'Dead');
+  }, [characters, selectedCharacters, selectedPlayers]);
   
-  // Set default sort based on group
-  const handleGroupChange = (value: GroupBy) => {
+  // More optimized event handlers
+  const handleGroupChange = useCallback((value: GroupBy) => {
     setGroupBy(value);
     
     // Set default sort based on the selected group
+    let newSortBy: SortBy;
     switch (value) {
-      case 'none':
-        setSortBy('alphabet');
+      case 'name':
+        newSortBy = 'alphabet';
         break;
       case 'level':
-        setSortBy('exp');
+        newSortBy = 'exp';
         break;
       case 'class':
-        setSortBy('level');
+        newSortBy = 'level';
         break;
       case 'status':
-        setSortBy('alphabet');
+        newSortBy = 'alphabet';
         break;
       default:
-        setSortBy('alphabet');
+        newSortBy = 'level';
     }
-  };
+    
+    setSortBy(newSortBy);
+    // Reset sort direction to default for this sort type
+    setIsAscending(getDefaultSortDirection());
+  }, [getDefaultSortDirection]);
   
-  // Reset all filters
-  const resetFilters = () => {
+  const handleInactiveChange = useCallback((checked: boolean) => {
+    setShowInactive(checked);
+  }, []);
+  
+  const resetFilters = useCallback(() => {
     setGroupBy('level');
-    setSortBy('level');
-    setCardSize('md');
+    setSortBy('exp');
+    setIsAscending(getDefaultSortDirection());
     setShowInactive(true);
-  };
+    setSelectedCharacters([]);
+    setSelectedPlayers([]);
+    setSearchResetKey(prev => prev + 1); // Increment the reset key to trigger search reset
+  }, [getDefaultSortDirection]);
   
-  // Handle buddy click
-  const handleBuddyClick = (buddy: string) => {
-    console.log(`Clicked on buddy: ${buddy}`);
-    // Here you could add functionality to highlight all cards with that buddy
-  };
+
+  // New handler to toggle sort direction
+  const toggleSortDirection = useCallback(() => {
+    setIsAscending(prev => !prev);
+  }, []);
 
   // Animation classes
   const fadeInClass = "animate-in fade-in slide-in-from-bottom-4 duration-500";
+
+  // Calculate total number of selected characters from players
+  const selectedPlayersCharCount = useMemo(() => {
+    return selectedPlayers.reduce((total, player) => total + player.characterCount, 0);
+  }, [selectedPlayers]);
 
   return (
     <>
@@ -221,106 +347,45 @@ export default function Guild({ size = "md" }: GuildProps) {
 
       {/* Page Content */}
       <div className="flex flex-col items-center justify-center py-12 px-4 max-w-[1650px] mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-purple-900">Die Loge zur Grauen Hand</h1>
-        <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-700">Mitglieder</h2>
-        
-        {/* Controls */}
-        <div className="w-full bg-white p-4 md:p-6 rounded-lg shadow-md mb-8">
-          <div className="flex flex-wrap md:flex-nowrap items-center gap-3">
-            {/* Group By */}
-            <div className="flex items-center">
-              <Filter className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
-              <Select value={groupBy} onValueChange={(value: string) => handleGroupChange(value as GroupBy)}>
-                <SelectTrigger className="w-[140px]">
-                  <SelectValue placeholder="Gruppieren nach..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Gruppieren nach</SelectLabel>
-                    <SelectItem value="none">Name</SelectItem>
-                    <SelectItem value="class">Klasse</SelectItem>
-                    <SelectItem value="level">Level</SelectItem>
-                    <SelectItem value="status">Status</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-            
-            {/* Sort By */}
-            <div className="flex items-center">
-              <SortDesc className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
-              <Select value={sortBy} onValueChange={(value: string) => setSortBy(value as SortBy)}>
-                <SelectTrigger className="w-[140px]">
-                  <SelectValue placeholder="Sortieren nach..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Sortieren nach</SelectLabel>
-                    <SelectItem value="alphabet">Alphabetisch</SelectItem>
-                    <SelectItem value="level">Level</SelectItem>
-                    <SelectItem value="exp">Erfahrung</SelectItem>
-                    <SelectItem value="status">Status</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-            
-            {/* Card Size */}
-            <div className="flex items-center">
-              <SquareUserRound className="mr-2 h-4 w-4 text-purple-800" aria-hidden="true" />
-              <Select value={cardSize} onValueChange={(value: string) => setCardSize(value as CardSize)}>
-                <SelectTrigger className="w-[65px]">
-                  <SelectValue placeholder="Charaktergröße..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Kartengröße</SelectLabel>
-                    <SelectItem value="sm">S</SelectItem>
-                    <SelectItem value="md">M</SelectItem>
-                    <SelectItem value="lg">L</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-            
-            {/* Search - takes remaining space */}
-            <div className="flex-grow">
-              <SearchCharacter 
-                characters={characters || []}
-                onSelect={handleCharacterSelect}
-                onClear={handleClearSearch}
-                placeholder="Nach Charakter suchen..."
-              />
-            </div>
-            
-            {/* Show/Hide Inactive Characters Checkbox */}
-            <div className="flex items-center">
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="show-inactive"
-                  checked={showInactive}
-                  onCheckedChange={(checked) => setShowInactive(checked as boolean)}
-                />
-                <label 
-                  htmlFor="show-inactive" 
-                  className="text-sm text-gray-700 cursor-pointer select-none"
-                >
-                  Inaktive anzeigen
-                </label>
-              </div>
-            </div>
-            
-            {/* Reset Button - Icon only */}
-            <Button 
-              variant="outline" 
-              size="icon" 
-              onClick={resetFilters}
-              className="h-10 w-10 rounded-full border-purple-200 text-purple-900 hover:bg-purple-50"
-              title="Zurücksetzen"
-            >
-              <RefreshCw className="h-4 w-4" />
-            </Button>
+        {/* Header section with responsive layout */}
+        <div className="w-full mb-10 md:mb-14">
+          {/* Mobile layout: stacked */}
+          <div className="flex flex-col items-center md:hidden">
+            <h1 className="text-3xl font-bold text-purple-900 text-center">Die Loge zur Grauen Hand</h1>
+            <h2 className="text-xl font-semibold text-gray-700 mt-2 mb-4">Mitglieder</h2>
           </div>
+          
+          {/* Desktop layout: centered header */}
+          <div className="hidden md:block">
+            <div className="flex flex-col items-center justify-center text-center">
+              <h1 className="text-4xl font-bold mb-6 text-purple-900">Die Loge zur Grauen Hand</h1>
+              <h2 className="text-2xl font-semibold mb-0 text-gray-700">Mitglieder</h2>
+            </div>
+          </div>
+        </div>
+        
+        {/* Controls section with memorial link */}
+        <div className="w-full flex flex-col mb-4">
+          {/* Guild Controls */}
+          <GuildControls 
+            groupBy={groupBy}
+            isAscending={isAscending}
+            showInactive={showInactive}
+            onGroupChange={handleGroupChange}
+            onToggleSortDirection={toggleSortDirection}
+            onInactiveChange={handleInactiveChange}
+            onReset={resetFilters}
+            characters={characters || []}
+            onSelect={handleCharacterSelect}
+            onClear={handleClearSearch}
+            searchResetKey={searchResetKey}
+            selectedCharacters={selectedCharacters}
+            onMultiSelect={handleMultiCharacterSelect}
+            selectedPlayers={selectedPlayers}
+            onPlayerSelect={handlePlayerSelect}
+            onPlayerClear={handlePlayerClear}
+            onPlayerMultiSelect={handleMultiPlayerSelect}
+          />
         </div>
         
         {/* Main Content - Guild Members */}
@@ -330,21 +395,20 @@ export default function Guild({ size = "md" }: GuildProps) {
             <div className="flex flex-col items-center justify-center p-8">
               <LoadingSpinner size={40} className="mb-4" />
               <p className="text-gray-500">Lade Charakterdaten...</p>
-              
-              {/* Skeleton Cards */}
-              <div className={`grid ${gridConfig[cardSize]} gap-6 mt-8`}>
-                {[...Array(10)].map((_, i) => (
-                  <CharacterCardSkeleton key={i} size={cardSize} />
-                ))}
-              </div>
             </div>
           )}
           
-          {/* Error State */}
+          {/* Error State with retry button */}
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
               <p className="text-red-600 mb-2">Fehler beim Laden der Charakterdaten</p>
               <p className="text-red-500 text-sm">{error instanceof Error ? error.message : 'Unknown error'}</p>
+              <button 
+                onClick={() => refetch()} 
+                className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
+              >
+                Erneut versuchen
+              </button>
             </div>
           )}
           
@@ -355,68 +419,91 @@ export default function Guild({ size = "md" }: GuildProps) {
             </div>
           )}
           
-          {/* Characters Display - Grouped */}
+          {/* Selected Characters Count - for character search */}
+          {selectedCharacters.length > 0 && (
+            <div className="w-full px-4 py-2 rounded-lg mb-4 flex justify-between items-center bg-purple-50 border border-purple-100">
+              <span className="text-purple-800 font-medium">
+                {selectedCharacters.length} {selectedCharacters.length === 1 ? 'Charakter' : 'Charaktere'} ausgewählt
+              </span>
+              <button 
+                onClick={handleClearSearch}
+                className="text-purple-600 hover:text-purple-800 text-sm cursor-pointer"
+              >
+                Auswahl zurücksetzen
+              </button>
+            </div>
+          )}
+          
+          {/* Selected Players Count - for player search */}
+          {selectedPlayers.length > 0 && (
+            <div className="w-full px-4 py-2 rounded-lg mb-4 flex justify-between items-center bg-purple-50 border border-purple-100">
+              <span className="text-purple-800 font-medium">
+                {selectedPlayers.length} {selectedPlayers.length === 1 ? 'Spieler' : 'Spieler'} mit {selectedPlayersCharCount} {selectedPlayersCharCount === 1 ? 'Charakter' : 'Charakteren'} ausgewählt
+              </span>
+              <button 
+                onClick={handlePlayerClear}
+                className="text-purple-600 hover:text-purple-800 text-sm cursor-pointer"
+              >
+                Auswahl zurücksetzen
+              </button>
+            </div>
+          )}
+          
+          {/* Characters Display - Using CharacterGroup component for better performance */}
           {!isLoading && characters && characters.length > 0 && (
             <div className="space-y-8">
               {Object.entries(groupedActiveInactive).map(([group, chars], groupIndex) => (
-                <div key={group} className={`${fadeInClass} space-y-4`} style={{ animationDelay: `${groupIndex * 100}ms` }}>
-                  {/* Group Title (only if grouped) */}
-                  {groupBy !== 'none' && (
-                    <h3 className="text-xl font-semibold text-gray-800 border-b pb-2">{group}</h3>
-                  )}
-                  
-                  {/* Characters Grid - Using flexbox instead of grid */}
-                  <div className="flex flex-wrap -mx-2 w-full bg-green-100">
-                    {chars.map((character: CharacterData, index: number) => (
-                      <div 
-                        key={character.id || index} 
-                        className="bg-red-200 mr-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 transition-all duration-500"
-                      >
-                        <CharacterCard 
-                          character={character}
-                          className="h-full"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <CharacterGroup 
+                  key={group}
+                  groupName={group}
+                  characters={chars}
+                  showGroupName={groupBy !== 'name'}
+                  index={groupIndex}
+                />
               ))}
             </div>
           )}
         </div>
         
         {/* Memorial Section - Dead Characters */}
-        {!isLoading && characters && deadChars.length > 0 && (
-          <div className="w-full">
-            <div className="border-t border-gray-300 w-full my-8"></div>
-            
-            <div className="flex items-center justify-left mb-6">
-              <h2 className="text-2xl font-semibold text-gray-600">Esche der Erinnerungen</h2>
-            </div>
-            
-            {activeMemorials && (
+        <section id="memorials" className="w-full">
+          {!isLoading && characters && deadChars.length > 0 && (
+            <div className="w-full">
+              <div className="border-t border-gray-300 w-full my-8"></div>
+              
+              <div className="flex items-center justify-left mb-6">
+                <h2 className="text-2xl font-semibold text-gray-600">Esche der Erinnerungen</h2>
+              </div>
+              
               <div className="w-full bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200 space-y-8">
                 <div className={`${fadeInClass} space-y-4`}>
-                  {/* Dead Characters Grid - Now using flexbox */}
-                  <div className="flex flex-wrap -mx-2">
-                    {deadChars.map((character: CharacterData, charIndex: number) => (
-                      <div 
-                        key={character.id || charIndex} 
-                        className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2 transition-all duration-500 opacity-90 saturate-[60%] hover:saturate-100 hover:opacity-100"
-                        style={{ animationDelay: `${charIndex * 50}ms` }}
-                      >
-                        <CharacterCard 
-                          character={character} 
-                          className="h-full"
-                        />
-                      </div>
-                    ))}
-                  </div>
+                  {/* Using the VirtualizedList for better performance with larger lists */}
+                  {deadChars.length > 20 ? (
+                    <VirtualizedCharacterList 
+                      characters={deadChars} 
+                      columnCount={5}
+                    />
+                  ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full">
+                      {deadChars.map((character: CharacterData, index: number) => (
+                        <div 
+                          key={character.id || index} 
+                          className="p-2 transition-all duration-500 opacity-90 saturate-[60%] hover:saturate-100 hover:opacity-100"
+                          style={{ animationDelay: `${index * 50}ms` }}
+                        >
+                          <CharacterCard 
+                            character={character} 
+                            className="h-full"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
-            )}
-          </div>
-        )}
+            </div>
+          )}
+        </section>
       </div>
     </>
   );

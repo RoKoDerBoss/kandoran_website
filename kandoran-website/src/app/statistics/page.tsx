@@ -1,4 +1,4 @@
-import { NavBar } from "@/components/ui/NavBar";
+import { NavBar } from "@/components/NavBar";
 
 export default function Statistics() {
   return (

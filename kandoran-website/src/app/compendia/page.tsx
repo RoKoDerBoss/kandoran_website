@@ -1,5 +1,6 @@
-import { NavBar } from "@/components/ui/NavBar";
-import { CharacterCard } from "@/components/CharacterCard";
+import { NavBar } from "@/components/NavBar";
+import { CharacterCard } from "@/components/CharacterCard/CharacterCard";
+//import Image from "next/image";
 
 export default function Compendia() {
   const character = {
@@ -48,6 +49,7 @@ export default function Compendia() {
       {/* Content */}
       <div className="flex flex-col items-center justify-center py-12 px-4">
         <h1 className="text-3xl font-bold mb-8">Compendia</h1>
+        {/* <Image src="/kandoran_hero1.webp" alt="" width={1000} height={100} /> */}
         <div className="max-w-6xl w-full bg-white p-6 rounded-lg shadow-md">
           <p className="text-lg mb-4">
             Welcome to the Kandoran Compendia, your source for all knowledge related to our world.
@@ -55,7 +57,7 @@ export default function Compendia() {
           <p className="mb-4">
             This page will contain references, guides, and information about the Kandoran universe.
           </p>
-          <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3">
+          <div className="flex flex-col sm:grid sm:grid-cols-4 gap-3">
             <CharacterCard character={character}/>
             <CharacterCard character={character2}/>
             
