@@ -3,11 +3,11 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { useCharacters } from '@/hooks/useCharacters';
 import { NavBar } from "@/components/NavBar";
-import { CharacterCard } from "@/components/CharacterCard/CharacterCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import GuildControls from "@/components/GuildControls";
 import CharacterGroup from "@/components/CharacterGroup";
-import VirtualizedCharacterList from "@/components/VirtualizedCharacterList";
+import Link from "next/link";
+import { Trees } from 'lucide-react';
 
 // Types
 type CharacterData = {
@@ -37,7 +37,6 @@ type PlayerData = {
 
 type GroupBy = 'name' | 'class' | 'level' | 'status';
 type SortBy = 'alphabet' | 'level' | 'exp' | 'status';
-
 
 // Helper functions - memoizing expensive operations
 const groupCharacters = (characters: CharacterData[], groupBy: GroupBy) => {
@@ -252,38 +251,6 @@ export default function Guild({}) {
     [sortedActiveInactive, groupBy]
   );
   
-  const deadChars = useMemo(() => {
-    // Check if any selected characters are dead
-    const selectedDeadCharIds = selectedCharacters
-      .filter(c => c.status === 'Dead')
-      .map(c => c.id);
-    
-    // Check if any selected players have dead characters
-    const selectedPlayerNames = selectedPlayers.map(p => p.name);
-    
-    // If search is active and there are dead characters selected, show only those
-    if ((selectedCharacters.length > 0 && selectedDeadCharIds.length > 0) ||
-        selectedPlayers.length > 0) {
-      
-      return (characters || [])
-        .filter((c: CharacterData) => {
-          if (c.status !== 'Dead') return false;
-          
-          // Include if character is selected
-          if (selectedDeadCharIds.includes(c.id)) return true;
-          
-          // Include if character's player is selected
-          if (c.player && selectedPlayerNames.includes(c.player)) return true;
-          
-          // Otherwise don't include
-          return selectedCharacters.length === 0 && selectedPlayers.length === 0;
-        });
-    }
-    
-    // Otherwise show all dead characters
-    return (characters || []).filter((c: CharacterData) => c.status === 'Dead');
-  }, [characters, selectedCharacters, selectedPlayers]);
-  
   // More optimized event handlers
   const handleGroupChange = useCallback((value: GroupBy) => {
     setGroupBy(value);
@@ -332,9 +299,6 @@ export default function Guild({}) {
     setIsAscending(prev => !prev);
   }, []);
 
-  // Animation classes
-  const fadeInClass = "animate-in fade-in slide-in-from-bottom-4 duration-500";
-
   // Calculate total number of selected characters from players
   const selectedPlayersCharCount = useMemo(() => {
     return selectedPlayers.reduce((total, player) => total + player.characterCount, 0);
@@ -353,13 +317,29 @@ export default function Guild({}) {
           <div className="flex flex-col items-center md:hidden">
             <h1 className="text-3xl font-bold text-purple-900 text-center">Die Loge zur Grauen Hand</h1>
             <h2 className="text-xl font-semibold text-gray-700 mt-2 mb-4">Mitglieder</h2>
+            <Link 
+              href="/guild/memorial" 
+              className="flex items-center text-gray-600 mt-2 hover:text-purple-800"
+            >
+              <Trees className="h-4 w-4 mr-1" />
+              <span>Esche der Erinnerungen</span>
+            </Link>
           </div>
           
           {/* Desktop layout: centered header */}
           <div className="hidden md:block">
             <div className="flex flex-col items-center justify-center text-center">
               <h1 className="text-4xl font-bold mb-6 text-purple-900">Die Loge zur Grauen Hand</h1>
-              <h2 className="text-2xl font-semibold mb-0 text-gray-700">Mitglieder</h2>
+              <div className="flex items-center">
+                <h2 className="text-2xl font-semibold mb-0 text-gray-700">Mitglieder</h2>
+                <Link 
+                  href="/guild/memorial" 
+                  className="ml-6 flex items-center text-gray-600 hover:text-purple-800"
+                >
+                  <Trees className="h-5 w-5 mr-1" />
+                  <span>Esche der Erinnerungen</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -464,46 +444,6 @@ export default function Guild({}) {
             </div>
           )}
         </div>
-        
-        {/* Memorial Section - Dead Characters */}
-        <section id="memorials" className="w-full">
-          {!isLoading && characters && deadChars.length > 0 && (
-            <div className="w-full">
-              <div className="border-t border-gray-300 w-full my-8"></div>
-              
-              <div className="flex items-center justify-left mb-6">
-                <h2 className="text-2xl font-semibold text-gray-600">Esche der Erinnerungen</h2>
-              </div>
-              
-              <div className="w-full bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200 space-y-8">
-                <div className={`${fadeInClass} space-y-4`}>
-                  {/* Using the VirtualizedList for better performance with larger lists */}
-                  {deadChars.length > 20 ? (
-                    <VirtualizedCharacterList 
-                      characters={deadChars} 
-                      columnCount={5}
-                    />
-                  ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full">
-                      {deadChars.map((character: CharacterData, index: number) => (
-                        <div 
-                          key={character.id || index} 
-                          className="p-2 transition-all duration-500 opacity-90 saturate-[60%] hover:saturate-100 hover:opacity-100"
-                          style={{ animationDelay: `${index * 50}ms` }}
-                        >
-                          <CharacterCard 
-                            character={character} 
-                            className="h-full"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-        </section>
       </div>
     </>
   );
