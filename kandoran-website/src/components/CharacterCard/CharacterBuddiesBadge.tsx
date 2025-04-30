@@ -63,12 +63,12 @@ const BuddiesSection = memo(({
             <div 
                 className={`
                 transition-all duration-500 ease-in-out
-                ${showBuddies ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 overflow-hidden'}
+                ${showBuddies ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'}
                 `}
             >
                 {showBuddies && (
                 <div className={`p-2 rounded-lg border bg-purple-50 mt-2`}>
-                    <div className="grid grid-cols-2 gap-x-2 gap-y-1 overflow-y-auto pr-1">
+                    <div className="grid grid-cols-2 gap-x-2 gap-y-1 max-h-40 overflow-y-auto pr-1">
                     {buddiesArray.map((buddy, index) => (
                         <div 
                         key={index} 
