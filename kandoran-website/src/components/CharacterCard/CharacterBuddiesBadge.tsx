@@ -1,4 +1,4 @@
-import React, { memo, useState, useMemo, useCallback } from 'react';
+import React, { memo, useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { Calendar, Users, ChevronUp, ChevronDown } from 'lucide-react';
 
 interface BuddiesSectionProps {
@@ -15,6 +15,7 @@ const BuddiesSection = memo(({
     containerClassName
 }: BuddiesSectionProps) => {
     const [showBuddies, setShowBuddies] = useState<boolean>(false);
+    const buddiesRef = useRef<HTMLDivElement>(null);
     
     const buddiesArray = useMemo(() => {
         return typeof buddies === 'string' 
@@ -24,15 +25,30 @@ const BuddiesSection = memo(({
 
     const toggleBuddies = useCallback(() => {
         setShowBuddies(!showBuddies);
-        //setShowBuddies(prev => !prev);
     }, [showBuddies]);
     
     const handleBuddyClick = useCallback((buddy: string) => {
         onBuddyClick?.(buddy);
     }, [onBuddyClick]);
+    
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        if (!showBuddies) return;
+        
+        const handleClickOutside = (event: MouseEvent) => {
+            if (buddiesRef.current && !buddiesRef.current.contains(event.target as Node)) {
+                setShowBuddies(false);
+            }
+        };
+        
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showBuddies]);
 
     return (
-        <div className={containerClassName}>
+        <div className={`${containerClassName} relative`}>
             <div className="flex justify-between items-center py-2">
                 <div className={`flex items-center`}>
                 <Calendar className={`mr-1 w-3 h-3 sm:w-4 sm:h-4 text-gray-600`} />
@@ -59,37 +75,28 @@ const BuddiesSection = memo(({
                 )}
             </div>
             
-            {/* Buddies Content with Animation */}
-            <div 
-                className={`
-                transition-all duration-300 ease-in-out relative
-                ${showBuddies ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}
-                `}
-            >
-                {showBuddies && (
-                <div className={`p-2 rounded-lg border transform transition-all bg-purple-50 shadow-md z-10`} 
-                     style={{ 
-                        position: 'absolute', 
-                        width: 'calc(100%)', 
-                        left: 0, 
-                        top: '100%', 
-                        marginTop: '0.5rem' 
-                     }}>
-                    <div className="grid grid-cols-2 gap-x-2 gap-y-1 max-h-40 overflow-y-auto pr-1">
-                    {buddiesArray.map((buddy, index) => (
-                        <div 
-                        key={index} 
-                        onClick={() => handleBuddyClick(buddy)}
-                        className={`flex items-center text-xs py-1 px-1.5 rounded transition-colors hover:bg-purple-100`}
-                        >
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-800 mr-1 sm:mr-1.5"></div>
-                            <span className="truncate text-gray-800 font-semibold text-xs sm:text-sm transition-text duration-300">{buddy}</span>
+            {/* Buddies Content with Animation - Positioned absolutely but as dropdown */}
+            {showBuddies && (
+                <div 
+                    ref={buddiesRef}
+                    className="absolute left-0 top-full mt-1 w-full z-50 animate-in fade-in-0 zoom-in-95 duration-100"
+                >
+                    <div className="p-2 rounded-lg border bg-purple-50 shadow-lg">
+                        <div className="grid grid-cols-2 gap-x-2 gap-y-1 max-h-48 overflow-y-auto pr-1">
+                            {buddiesArray.map((buddy, index) => (
+                                <div 
+                                    key={index} 
+                                    onClick={() => handleBuddyClick(buddy)}
+                                    className="flex items-center text-xs py-1 px-1.5 rounded hover:bg-purple-100 cursor-pointer"
+                                >
+                                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-800 mr-1 sm:mr-1.5"></div>
+                                    <span className="truncate text-gray-800 font-semibold text-xs sm:text-sm transition-text duration-300">{buddy}</span>
+                                </div>
+                            ))}
                         </div>
-                    ))}
                     </div>
                 </div>
-                )}
-            </div>
+            )}
         </div>
     )
 });
