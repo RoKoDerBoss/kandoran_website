@@ -76,10 +76,10 @@ export const CharacterCard = memo(({ character, className }: CharacterCardProps)
     
     return (
         <Card className={cn(
-            "min-w-[265px] max-w-[275px] sm:max-w-[315px] w-full p-2 bg-white overflow-visible hover:shadow-lg transition-transform duration-200 transform hover:-translate-y-0.5 -gap-4 h-auto",
+            "min-w-[265px] max-w-[275px] sm:max-w-[315px] w-full p-2 bg-white overflow-hidden hover:shadow-lg transition-transform duration-200 transform hover:-translate-y-0.5 -gap-4",
             className
         )}>
-            <CardContent className="-px-6 pt-6 bg-white space-y-1 sm:space-y-2 h-auto overflow-visible">
+            <CardContent className="-px-6 pt-6 bg-white space-y-1 sm:space-y-2">
                 {/* Card Header with Status, Level, and Avatar */}
                 {/* Banner */}
                 <Header 
@@ -106,14 +106,12 @@ export const CharacterCard = memo(({ character, className }: CharacterCardProps)
                     exp={exp} 
                     gold={gold}  />
                 {/* Last Game & Buddies */}
-                <div className="relative overflow-visible">
-                    <BuddiesSection 
-                        lastGame={last_game} 
-                        buddies={buddies} 
-                        onBuddyClick={() => {}}  />
-                </div>
+                <BuddiesSection 
+                    lastGame={last_game} 
+                    buddies={buddies} 
+                    onBuddyClick={() => {}}  />
             </CardContent>
-            <CardFooter className="flex items-center justify-center border-t border-gray-200 mb-1 h-auto">
+            <CardFooter className="flex items-center justify-center border-t border-gray-200 mb-1">
                 {/* Player Name */}
                 <div className="flex items-center justify-center w-full">
                     <span className="text-xs sm:text-sm font-medium text-gray-800 transition-text duration-300">Gespielt von: <span className="text-xs sm:text-sm font-bold text-purple-800 transition-text duration-300">{player}</span></span>
