@@ -62,18 +62,25 @@ const BuddiesSection = memo(({
             {/* Buddies Content with Animation */}
             <div 
                 className={`
-                transition-all duration-300 ease-in-out
-                ${showBuddies ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0 overflow-hidden'}
+                transition-all duration-300 ease-in-out relative
+                ${showBuddies ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}
                 `}
             >
                 {showBuddies && (
-                <div className={`p-2 rounded-lg border transform transition-all mt-2 bg-purple-50`}>
-                    <div className="grid grid-cols-2 gap-x-2 gap-y-1 max-h-34 overflow-y-auto pr-1">
+                <div className={`p-2 rounded-lg border transform transition-all bg-purple-50 shadow-md z-10`} 
+                     style={{ 
+                        position: 'absolute', 
+                        width: 'calc(100%)', 
+                        left: 0, 
+                        top: '100%', 
+                        marginTop: '0.5rem' 
+                     }}>
+                    <div className="grid grid-cols-2 gap-x-2 gap-y-1 max-h-40 overflow-y-auto pr-1">
                     {buddiesArray.map((buddy, index) => (
                         <div 
                         key={index} 
                         onClick={() => handleBuddyClick(buddy)}
-                        className={`flex items-center text-xs py-1 px-1.5 rounded transition-colors`}
+                        className={`flex items-center text-xs py-1 px-1.5 rounded transition-colors hover:bg-purple-100`}
                         >
                             <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-800 mr-1 sm:mr-1.5"></div>
                             <span className="truncate text-gray-800 font-semibold text-xs sm:text-sm transition-text duration-300">{buddy}</span>

@@ -42,15 +42,15 @@ const CharacterGroup = memo(({
         <h3 className="text-xl font-semibold text-gray-800 border-b pb-2">{groupName}</h3>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full justify-items-center sm:justify-items-stretch space-y-2 space-x-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 w-full justify-items-center sm:justify-items-stretch gap-4 grid-flow-row">
         {characters.map((character, charIndex) => (
           <div 
             key={character.id || charIndex} 
-            className="flex w-auto transition-all duration-300"
+            className="flex align-top w-auto"
           >
             <CharacterCard 
               character={character}
-              className=""
+              className="h-auto"
             />
           </div>
         ))}

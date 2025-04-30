@@ -6,7 +6,7 @@ import { NavBar } from "@/components/NavBar";
 import { CharacterCard } from "@/components/CharacterCard/CharacterCard";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import Link from 'next/link';
-import { ChevronLeft, Trees } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 // Types
 type CharacterData = {
@@ -67,12 +67,11 @@ export default function Memorial() {
           {/* Header */}
           <div className="flex flex-col items-center justify-center text-center">
             <div className="flex items-center">
-              <Trees className="h-8 w-8 mr-3 text-gray-600" />
               <h1 className="text-4xl font-bold mb-6 text-purple-900">Esche der Erinnerungen</h1>
             </div>
             <p className="text-xl text-gray-600 max-w-2xl">
-              Hier gedenken wir den gefallenen Mitgliedern der Loge zur Grauen Hand, 
-              deren Mut, Stärke und Opfer für immer in unseren Erinnerungen verweilen.
+              &quot;Hier gedenken wir den gefallenen Mitgliedern der Loge zur Grauen Hand, 
+              deren Mut, Stärke und Opfer für immer in unseren Erinnerungen verweilen.&quot;
             </p>
           </div>
         </div>
