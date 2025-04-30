@@ -19,12 +19,24 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-// Define a more specific type for character objects
-interface CharacterData {
-  name?: string;
+type CharacterData = {
   id?: string;
-  [key: string]: unknown;
-}
+  name?: string;
+  race?: string;
+  level?: number;
+  class?: string;
+  subclass?: string;
+  secondary_class?: string;
+  secondary_subclass?: string;
+  gold?: number;
+  status?: 'Active' | 'Inactive' | 'Dead' | string;
+  exp?: number;
+  games?: number;
+  last_game?: string;
+  buddies?: string | string[];
+  player?: string;
+  avatar_url?: string;
+};
 
 interface CharacterSearchProps {
   characters: CharacterData[];
