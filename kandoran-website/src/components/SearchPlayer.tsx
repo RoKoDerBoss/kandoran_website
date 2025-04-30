@@ -47,7 +47,7 @@ type PlayerData = {
 };
 
 interface PlayerSearchProps {
-  characters: CharacterData[]; // We need the full character data to extract players
+  characters: CharacterData[];
   onSelect: (player: PlayerData) => void;
   onClear: () => void;
   onMultiSelect?: (players: PlayerData[]) => void;
@@ -99,29 +99,48 @@ export function SearchPlayer({
     });
     
     // Convert to array of player options
-    return Array.from(playerMap.entries())
+    const options = Array.from(playerMap.entries())
       .map(([name, characterCount]) => ({
         label: name,
         value: name,
         player: { name, characterCount }
       }))
       .sort((a, b) => a.label.localeCompare(b.label));
+    
+    return options;
   }, [characters])
 
   // Filter player options based on search query
   const filteredOptions = useMemo(() => {
-    if (!searchQuery.trim()) return playerOptions;
+    if (!searchQuery.trim()) {
+      return playerOptions;
+    }
     
-    return playerOptions.filter(option => 
+    const filtered = playerOptions.filter(option => 
       option.label.toLowerCase().includes(searchQuery.toLowerCase())
     );
+    
+    return filtered;
   }, [playerOptions, searchQuery]);
 
   const handleSelect = useCallback((currentValue: string) => {
-    // Log for debugging
-    console.log('Player selected:', currentValue);
+    // Try to find exact match first
+    let selected = playerOptions.find(option => option.value === currentValue);
     
-    const selected = playerOptions.find(option => option.value === currentValue);
+    // If no exact match, try case-insensitive match
+    if (!selected) {
+      selected = playerOptions.find(option => 
+        option.value.toLowerCase() === currentValue.toLowerCase()
+      );
+    }
+    
+    // If still no match, try partial match (if name is included in the value)
+    if (!selected) {
+      selected = playerOptions.find(option => 
+        currentValue.toLowerCase().includes(option.value.toLowerCase()) ||
+        option.value.toLowerCase().includes(currentValue.toLowerCase())
+      );
+    }
     
     if (selected) {
       // Check if already selected
@@ -129,52 +148,54 @@ export function SearchPlayer({
         p => p.name === selected.player.name
       );
 
+      let newSelected: PlayerData[];
+      
       if (isAlreadySelected) {
         // Remove from selection
-        const newSelected = effectiveSelectedPlayers.filter(
+        newSelected = effectiveSelectedPlayers.filter(
           p => p.name !== selected.player.name
         );
-        
-        if (onMultiSelect) {
-          onMultiSelect(newSelected);
-        } else {
-          setInternalSelectedPlayers(newSelected);
-        }
-
-        // If we just removed the last item, also call onClear
-        if (newSelected.length === 0) {
-          onClear();
-        }
       } else {
         // Add to selection
-        const newSelected = [...effectiveSelectedPlayers, selected.player];
-        
-        // Log for debugging
-        console.log('New selection:', newSelected);
-        
-        if (onMultiSelect) {
-          onMultiSelect(newSelected);
-        } else {
-          setInternalSelectedPlayers(newSelected);
-        }
-        
-        // Also call onSelect for backward compatibility
+        newSelected = [...effectiveSelectedPlayers, selected.player];
+      }
+      
+      // Update the selection state
+      if (onMultiSelect) {
+        onMultiSelect(newSelected);
+      } else {
+        setInternalSelectedPlayers(newSelected);
+      }
+      
+      // Call onSelect for backward compatibility
+      if (!isAlreadySelected) {
         onSelect(selected.player);
       }
+      
+      // If we just removed the last item, call onClear
+      if (newSelected.length === 0) {
+        onClear();
+      }
+      
+      // Close the popover after selection
+      setOpen(false);
     } else {
-      handleClear();
+      // No matching option found - silently fail
     }
   }, [playerOptions, effectiveSelectedPlayers, onSelect, onMultiSelect, onClear]);
   
   const handleClear = useCallback(() => {
-    setSearchQuery("");
-    
+    // Immediately update UI state
     if (onMultiSelect) {
       onMultiSelect([]);
     } else {
       setInternalSelectedPlayers([]);
     }
     
+    // Clear search query
+    setSearchQuery("");
+    
+    // Call onClear callback
     onClear();
   }, [onClear, onMultiSelect]);
 
@@ -247,17 +268,17 @@ export function SearchPlayer({
           </Command>
         </PopoverContent>
       </Popover>
-
-      {/* {effectiveSelectedPlayers.length > 0 && (
+      
+      {effectiveSelectedPlayers.length > 0 && (
         <Button 
           variant="ghost" 
           size="icon" 
           onClick={handleClear}
           className="h-9 w-9 rounded-full p-0 absolute right-2 top-1/2 transform -translate-y-1/2"
         >
-          <X className="h-4 w-4" />
+          <X className="h-4 w-4 text-gray-700 hover:text-gray-800" />
         </Button>
-      )} */}
+      )}
     </div>
   );
 }

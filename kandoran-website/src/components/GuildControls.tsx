@@ -16,7 +16,6 @@ import {
   SortDesc,
   SortAsc,
   RefreshCw,
-  User,
 } from 'lucide-react';
 
 // Types
@@ -87,13 +86,7 @@ const GuildControls = memo(({
   onPlayerClear = () => {},
   onPlayerMultiSelect
 }: GuildControlsProps) => {
-  // Toggle between character and player search
-  const [searchMode, setSearchMode] = React.useState<'character' | 'player'>('character');
-
-  const toggleSearchMode = () => {
-    setSearchMode(prev => prev === 'character' ? 'player' : 'character');
-  };
-
+  // 
   return (
     <div className="w-full min-w-[265px] bg-white p-2 md:p-4 rounded-lg shadow-md mb-8">
   
