@@ -507,9 +507,9 @@
     "id": "129619493",
     "name": "Thalwyn",
     "race": "Forest Gnome",
-    "level": 1,
+    "level": 3,
     "class": "Druid",
-    "subclass": "",
+    "subclass": "Moon",
     "secondary_class": "",
     "secondary_subclass": "",
     "gold": 5,
@@ -1834,5 +1834,23 @@
     "last_game": "30.04.2025",
     "buddies": "Berrin, Irsu, Krindel, luciano, Rogar",
     "player": "Captain "
+  },
+  {
+    "id": "146053213",
+    "name": "Naelen the Calm",
+    "race": "Wood Elf",
+    "level": 3,
+    "class": "Barbarian",
+    "subclass": "Totem Warrior",
+    "secondary_class": "",
+    "secondary_subclass": "",
+    "gold": 10,
+    "status": "Inactive",
+    "avatar_url": "https://www.dndbeyond.com/avatars/49067/964/1581111423-146053213.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 15,
+    "games": 0,
+    "last_game": "-",
+    "buddies": "",
+    "player": "Joe "
   }
 ]
