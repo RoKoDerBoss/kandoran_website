@@ -1148,7 +1148,7 @@
     "exp": 56,
     "games": 13,
     "last_game": "03.05.2025",
-    "buddies": "Aitvaras, Alaris, Brock, Brummar, Draxxion, Eliza, Faris, Hymni, Kycis, Kyrus, luciano, Nolan, Ryuzo, Seamol, Sohalja, Svampy, Thurkun, Tralin, Vitus, Weinflasche, Zurgha",
+    "buddies": "Aitvaras, Alaris, Brock, Brond, Brummar, Draxxion, Eliza, Faris, Hymni, Kycis, Kyrus, luciano, Nolan, Ryuzo, Seamol, Sohalja, Svampy, Thurkun, Tralin, Vitus, Weinflasche, Zurgha",
     "player": "Birni "
   },
   {
@@ -1307,10 +1307,10 @@
     "gold": 93,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/47135/694/1581111423-140968211.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
-    "exp": 19,
-    "games": 1,
+    "exp": 24,
+    "games": 2,
     "last_game": "04.05.2025",
-    "buddies": "Aitvaras, Ash, Brummar, Svampy, Tari",
+    "buddies": "Aitvaras, Ash, Biara, Brummar, luciano, Svampy, Tari",
     "player": "Mr_Drääääg "
   },
   {
@@ -1436,7 +1436,7 @@
     "exp": 40,
     "games": 7,
     "last_game": "04.05.2025",
-    "buddies": "Aitvaras, Ash, Berrin, Biara, Brummar, Elandor, Faris, Hymni, Irsu, Krindel, Lucinda, Rogar, Svampy, Syx, Talanar, Tamina, Tralin, Vitus, Xanvira",
+    "buddies": "Aitvaras, Ash, Berrin, Biara, Brond, Brummar, Elandor, Faris, Hymni, Irsu, Krindel, Lucinda, Rogar, Svampy, Syx, Talanar, Tamina, Tralin, Vitus, Xanvira",
     "player": "Chris "
   },
   {
@@ -1484,7 +1484,7 @@
     "subclass": "Champion",
     "secondary_class": "",
     "secondary_subclass": "",
-    "gold": 271,
+    "gold": 321,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/48259/644/1581111423-138296813.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 38,
@@ -1641,7 +1641,7 @@
     "id": "145012086",
     "name": "Ash Brewskür",
     "race": "Firbolg",
-    "level": 3,
+    "level": 4,
     "class": "Sorcerer",
     "subclass": "Clockwork Soul",
     "secondary_class": "",
@@ -1682,7 +1682,7 @@
     "subclass": "Stars",
     "secondary_class": "",
     "secondary_subclass": "",
-    "gold": 678,
+    "gold": 728,
     "status": "Active",
     "avatar_url": "https://www.dndbeyond.com/avatars/48783/381/1581111423-145323129.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
     "exp": 46,
