@@ -1852,5 +1852,23 @@
     "last_game": "09.05.2025",
     "buddies": "Aitvaras, Ash, Brond, Svampy",
     "player": "Joe "
+  },
+  {
+    "id": "127760769",
+    "name": "Hugo",
+    "race": "Goliath",
+    "level": 5,
+    "class": "Fighter",
+    "subclass": "Champion",
+    "secondary_class": "",
+    "secondary_subclass": "",
+    "gold": 145,
+    "status": "Inactive",
+    "avatar_url": "https://www.dndbeyond.com/avatars/49110/663/1581111423-127760769.jpeg?width=150&height=150&fit=crop&quality=95&auto=webp",
+    "exp": 50,
+    "games": 0,
+    "last_game": "-",
+    "buddies": "",
+    "player": "Tobi "
   }
 ]
