@@ -7,7 +7,7 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import GuildControls from "@/components/GuildControls";
 import CharacterGroup from "@/components/CharacterGroup";
 import Link from "next/link";
-import { Trees } from 'lucide-react';
+import { ArrowUpRight, Trees } from 'lucide-react';
 
 // Types
 type CharacterData = {
@@ -313,35 +313,20 @@ export default function Guild({}) {
       <div className="flex flex-col items-center justify-center py-12 px-4 max-w-[1650px] mx-auto">
         {/* Header section with responsive layout */}
         <div className="w-full mb-10 md:mb-14">
-          {/* Mobile layout: stacked */}
-          <div className="flex flex-col items-center md:hidden">
-            <h1 className="text-3xl font-bold text-purple-900 text-center">Die Loge zur Grauen Hand</h1>
-            <h2 className="text-xl font-semibold text-gray-700 mt-2 mb-4">Mitglieder</h2>
-            <Link 
-              href="/guild/memorial" 
-              className="flex items-center text-gray-600 mt-2 hover:text-purple-800"
-            >
-              <Trees className="h-4 w-4 mr-1" />
-              <span>Esche der Erinnerungen</span>
-            </Link>
-          </div>
-          
-          {/* Desktop layout: centered header */}
-          <div className="hidden md:block">
             <div className="flex flex-col items-center justify-center text-center">
               <h1 className="text-4xl font-bold mb-6 text-purple-900">Die Loge zur Grauen Hand</h1>
-              <div className="flex items-center">
-                <h2 className="text-2xl font-semibold mb-0 text-gray-700">Mitglieder</h2>
+              <div className="flex flex-col items-center">
+                <h2 className="text-xl md:text-2xl font-semibold mb-2 text-gray-700">Mitglieder</h2>
                 <Link 
                   href="/guild/memorial" 
-                  className="ml-6 flex items-center text-gray-600 hover:text-purple-800"
+                  className="ml-6 flex items-center text-sm md:text-base text-purple-800"
                 >
                   <Trees className="h-5 w-5 mr-1" />
                   <span>Esche der Erinnerungen</span>
+                  <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
-          </div>
         </div>
         
         {/* Controls section with memorial link */}

@@ -60,19 +60,21 @@ export default function Memorial() {
               className="text-gray-600 hover:text-purple-800 flex items-center mr-4"
             >
               <ChevronLeft className="h-5 w-5 mr-1" />
-              <span>Zurück zur Gilde</span>
+              <span>Zur Gilde</span>
             </Link>
           </div>
           
           {/* Header */}
-          <div className="flex flex-col items-center justify-center text-center">
+          <div className="flex flex-col items-center justify-center text-center gap-2">
             <div className="flex items-center">
               <h1 className="text-4xl font-bold mb-6 text-purple-900">Esche der Erinnerungen</h1>
             </div>
-            <p className="text-xl text-gray-600 max-w-2xl">
-              &quot;Hier gedenken wir den gefallenen Mitgliedern der Loge zur Grauen Hand, 
-              deren Mut, Stärke und Opfer für immer in unseren Erinnerungen verweilen.&quot;
-            </p>
+            <div className="flex justify-center items-center w-full/2 bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+              <p className="text-xl text-gray-600 max-w-2xl">
+                &quot;Hier gedenken wir den gefallenen Mitgliedern der Loge zur Grauen Hand, 
+                deren Mut, Stärke und Opfer für immer in unseren Erinnerungen verweilen.&quot;
+              </p>
+            </div>
           </div>
         </div>
         
@@ -115,7 +117,7 @@ export default function Memorial() {
                   {sortedDeadChars.map((character: CharacterData, index: number) => (
                     <div 
                       key={character.id || index} 
-                      className="p-2 transition-all duration-500 opacity-90 saturate-[60%] hover:saturate-100 hover:opacity-100"
+                      className="p-2 transition-all duration-500 opacity-90 saturate-[50%] hover:saturate-100 hover:opacity-100"
                       style={{ animationDelay: `${index * 50}ms` }}
                     >
                       <CharacterCard 
