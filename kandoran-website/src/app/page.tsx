@@ -23,7 +23,7 @@ export default function Home() {
 
       {/* Hero Section - Full Screen */}
       <section className="min-h-screen w-full flex items-center justify-center py-8 md:py-0"> 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 h-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Image - Now appears first on mobile */}
           <div className="flex items-center justify-center order-1 lg:order-2 mt-14 lg:mt-0">
             <div className="rounded-2xl outline-2 outline-accent overflow-hidden shadow-xl max-w-full">
@@ -44,6 +44,10 @@ export default function Home() {
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-center lg:text-left">
                 Erlebe die Magie von Kandoran! ✨
               </h1>
+              
+              <p className="font-script text-3xl sm:text-4xl text-center lg:text-left text-[var(--primary)]">
+                Ein magisches Abenteuer
+              </p>
               
               <p className="text-base sm:text-lg text-center lg:text-left">
                 Schließe dich unserer lebendigen Dungeons & Dragons-Community auf 
@@ -83,7 +87,7 @@ export default function Home() {
       
       {/* More Info Section */}
       <section id="more-info" className="py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px]">
           <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center lg:text-left">Mehr Informationen</h2>
           
           {/* Project */}

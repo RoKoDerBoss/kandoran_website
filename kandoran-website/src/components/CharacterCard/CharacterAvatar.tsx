@@ -23,7 +23,7 @@ const AvatarBadge = memo(({
                         href={dndBeyondUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className={`block rounded-full overflow-hidden z-5 border-3 border-yellow-400 shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer`}
+                        className={`block rounded-full overflow-hidden z-5 border-3 border-[var(--accent)] shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer`}
                         title="View on D&D Beyond"
                     >
                         <Avatar className="w-22 h-22 sm:w-28 sm:h-28 transition-transform duration-300">
