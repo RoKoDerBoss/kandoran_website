@@ -8,6 +8,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-script: var(--font-pinyon-script);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,7 +47,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #F2F2F2; 
+  --background: #faf7f5; 
   --foreground: #2F2F2F;
   --card: var(--gray-50);
   --card-foreground: oklch(0.145 0 0);
@@ -55,7 +56,8 @@
   --primary-lightest: #f5f3ff;
   --primary-lighter: #D6CFDE;
   --primary-light: #72588E;
-  --primary: #36115E;
+  --primary: #36115E; 
+  /* #9b2c2c */
   --primary-dark: #260C43;  
   --primary-darker: #150625;
   --primary-darkest: #10051C;
