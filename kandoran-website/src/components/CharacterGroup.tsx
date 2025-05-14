@@ -46,7 +46,7 @@ const CharacterGroup = memo(({
         {characters.map((character, charIndex) => (
           <div 
             key={character.id || charIndex} 
-            className="flex w-auto transition-all duration-300 self-start"
+            className="flex w-auto transition-all duration-300 self-start justify-center sm:justify-start"
           >
             <CharacterCard 
               character={character}

@@ -47,7 +47,7 @@ export function NavBar() {
       <div className="flex justify-center items-center ms-3 md:ms-6">
         <Image src="/logo.svg" alt="" width={60} height={60} className="svg-color-foreground"/>
         {/* <Image src="/logo2.svg" alt="" width={120} height={120} className="mt-4 svg-color-foreground"/> */}
-        <span className="text-5xl font-bold font-script text-[var(--accent)]">Kandoran</span>
+        <span className="text-4xl font-bold font-script text-[var(--foreground)]">Kandoran</span>
       </div>
 
       {/* Desktop Navigation */}

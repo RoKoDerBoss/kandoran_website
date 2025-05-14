@@ -20,7 +20,7 @@ const pinyonScript = Pinyon_Script({
 
 export const metadata: Metadata = {
   title: 'Kandoran - D&D Westmarch Project',
-  description: 'Explore the legends of Kandoran, a D&D 5e Westmarch project',
+  description: 'Entdecke die Legenden aus Kandoran, ein D&D 5e Westmarch Projekt',
 };
 
 export default function RootLayout({

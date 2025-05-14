@@ -316,7 +316,6 @@ export default function Guild({}) {
             <div className="flex flex-col items-center justify-center text-center">
               <h1 className="text-4xl font-bold mb-6 text-purple-900">Die Loge zur Grauen Hand</h1>
               <div className="flex flex-col items-center">
-                <h2 className="text-xl md:text-2xl font-semibold mb-2 text-gray-700">Mitglieder</h2>
                 <Link 
                   href="/guild/memorial" 
                   className="ml-6 flex items-center text-sm md:text-base text-purple-800"
@@ -353,6 +352,8 @@ export default function Guild({}) {
           />
         </div>
         
+        <h2 className="text-xl md:text-2xl font-semibold mb-2 text-gray-700">Mitglieder</h2>
+
         {/* Main Content - Guild Members */}
         <div className="w-full mb-12">
           {/* Loading State */}
