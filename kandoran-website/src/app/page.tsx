@@ -85,73 +85,80 @@ export default function Home() {
       
       {/* More Info Section */}
       <section id="more-info" className="py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-[90vw]">
-          
-          {/* Project */}
-          <div className="flex flex-row items-center space-x-2 mb-4 justify-center lg:justify-start">
-            <Presentation className="w-6 h-6 sm:w-8 sm:h-8 text-[var(--primary)]" />
-            <span className="text-2xl sm:text-3xl font-bold text-[var(--primary)]">Projekt Kandoran</span>
-          </div>
-          
-          {/* Project Description */}
-          <div className="mb-10 sm:mb-12">
-            <p className="text-base sm:text-lg text-center lg:text-left mx-auto lg:mx-0 max-w-prose">
-              Die Legenden von Kandoran ist ein D&D 5e Westmarsch Projekt, in welchem Fokus auf Herausforderung, 
-              langfristige Charakterentwicklung und das Bestreiten vielseitiger Missionen gelegt wird. 
-              Die Spielercharaktere sind Teil einer Abenteurergilde und leben zusammen im Hauptquartier der &quot;Loge zur Grauen Hand&quot;.
-            </p>
-            <p className="text-base sm:text-lg mt-4 text-center lg:text-left mx-auto lg:mx-0 max-w-prose">
-              Auf gemeinsamen Abenteuern, geleitet von verschiedenen Spielleitern, lernen sich sowohl die Charaktere, als auch die Spieler kennen.
-              Jeder ist auf Kandoran willkommen, ob aufstrebender Neuling, entschlossener Erfahrener oder althergebrachter Veteran.
-            </p>
-          </div>
-          
-          {/* Advantages */}
-          <div className="flex flex-row items-center space-x-2 mb-4 sm:mb-6 justify-center lg:justify-start">
-            <BookmarkPlus className="w-6 h-6 sm:w-8 sm:h-8 text-[var(--primary)]" />
-            <span className="text-2xl sm:text-3xl font-bold text-[var(--primary)]">Vorteile</span>
-          </div>
-          
-          <div className="rounded-2xl bg-purple-50 overflow-hidden shadow-md">
-            <div className="flex flex-col lg:flex-row p-4 sm:p-6">
-              {/* Text */}
-              <div className="w-full lg:w-1/3 mb-6 lg:mb-0 text-center lg:text-left">
-                <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Was kannst du erwarten?</h2>
-                <p className="text-base sm:text-lg mx-auto lg:mx-0 max-w-prose">
-                  In Kandoran warten viele Vorteile und unvergessliche Abenteuer auf dich. Entdecke einen Auszug der Sachen, die auf dich warten.
-                </p>
+        <div className="max-w-7xl mx-auto px- sm:px-6 lg:px-8 max-w-[90vw] p-4">
+          <div className="flex flex-row sm:flex-col-2 h-[35vh] justify-between items-top">
+            <div className="flex flex-col hidden sm:block w-1/2">
+              {/* Citation Card */}
+            </div>
+            <div className="flex flex-col w-full sm:w-1/2">
+              {/* Project */}
+              <div className="flex flex-row items-center space-x-2 mb-4 justify-center lg:justify-start">
+                <Presentation className="w-6 h-6 sm:w-8 sm:h-8 text-[var(--primary)]" />
+                <span className="text-2xl sm:text-3xl font-bold text-[var(--primary)]">Projekt Kandoran</span>
               </div>
               
-              {/* Carousel */}
-              <div className="w-full lg:w-2/3">
-                <Carousel 
-                  plugins={[plugin.current]} 
-                  className="w-full max-w-[90%] sm:max-w-[95%] mx-auto" 
-                  onMouseEnter={plugin.current.stop} 
-                  onMouseLeave={plugin.current.reset}
-                >
-                  <CarouselContent className="px-1 sm:px-2">
-                    {AdvantageCarouselItems.map((item) => (
-                      <CarouselItem key={item.id} className="basis-full sm:basis-1/2 lg:basis-1/3 p-1 sm:p-2">
-                        <Card className="bg-gray-100 shadow-md h-full max-w-[300px] sm:max-w-none mx-auto">
-                          <CardContent className="flex w-full flex-col aspect-square px-2">
-                            <div className="flex flex-col gap-6 text-center items-center justify-center p-2">
-                              <span className="text-xl font-semibold font-mono inline-block w-full break-words min-h-[60px]">
-                                {item.header}
-                              </span>
-                              <LucidIcon name={item.icon} size={80} color="var(--primary)"/>
-                              <p className="text-base mx-auto lg:mx-0 max-w-prose text-center">{item.text}</p>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  <div className="flex justify-center mt-2 sm:mt-4">
-                    <CarouselPrevious className="relative static transform-none mx-1 sm:mx-2 h-8 w-8 sm:h-10 sm:w-10" />
-                    <CarouselNext className="relative static transform-none mx-1 sm:mx-2 h-8 w-8 sm:h-10 sm:w-10" />
-                  </div>
-                </Carousel>
+              {/* Project Description */}
+              <div className="mb-10 sm:mb-12">
+                <p className="text-sm sm:text-lg text-center lg:text-left mx-auto lg:mx-0 max-w-prose">
+                  Die Legenden von Kandoran ist ein D&D 5e Westmarsch Projekt, in welchem Fokus auf Herausforderung, 
+                  langfristige Charakterentwicklung und das Bestreiten vielseitiger Missionen gelegt wird. 
+                  Die Spielercharaktere sind Teil einer Abenteurergilde und leben zusammen im Hauptquartier der &quot;Loge zur Grauen Hand&quot;.
+                </p>
+                <p className="text-sm sm:text-lg mt-4 text-center lg:text-left mx-auto lg:mx-0 max-w-prose">
+                  Auf gemeinsamen Abenteuern, geleitet von verschiedenen Spielleitern, lernen sich sowohl die Charaktere, als auch die Spieler kennen.
+                  Jeder ist auf Kandoran willkommen, ob aufstrebender Neuling, entschlossener Erfahrener oder althergebrachter Veteran.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Advantages */}
+          <div className="flex flex-col w-full h-[55vh] justify-between items-top">
+            <div className="flex flex-row items-center space-x-2 mb-4 sm:mb-6 justify-center lg:justify-start">
+              <BookmarkPlus className="w-6 h-6 sm:w-8 sm:h-8 text-[var(--primary)]" />
+              <span className="text-2xl sm:text-3xl font-bold text-[var(--primary)]">Vorteile</span>
+            </div>
+            <div className="rounded-2xl overflow-hidden">
+              <div className="flex flex-col sm:flex-row items-left p-4 sm:p-6">      
+                {/* Carousel */}
+                <div className="w-full lg:w-2/3">
+                  <Carousel 
+                    plugins={[plugin.current]} 
+                    className="w-full max-w-[90%] sm:max-w-[95%] mx-auto" 
+                    onMouseEnter={plugin.current.stop} 
+                    onMouseLeave={plugin.current.reset}
+                  >
+                    <CarouselContent className="px-1 sm:px-2">
+                      {AdvantageCarouselItems.map((item) => (
+                        <CarouselItem key={item.id} className="basis-full sm:basis-1/2 lg:basis-1/3 p-1 sm:p-2">
+                          <Card className="bg-purple-50 mb-2 shadow-md h-full max-w-[300px] sm:max-w-none mx-auto">
+                            <CardContent className="flex w-full flex-col aspect-square px-2">
+                              <div className="flex flex-col gap-6 text-center items-center justify-center p-2">
+                                <span className="text-xl font-semibold font-mono inline-block w-full break-words min-h-[60px]">
+                                  {item.header}
+                                </span>
+                                <LucidIcon name={item.icon} size={80} color="var(--primary)"/>
+                                <p className="text-base mx-auto lg:mx-0 max-w-prose text-center">{item.text}</p>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <div className="flex justify-center mt-6 sm:mt-8">
+                      <CarouselPrevious className="relative static transform-none mx-1 sm:mx-2 h-8 w-8 sm:h-10 sm:w-10" />
+                      <CarouselNext className="relative static transform-none mx-1 sm:mx-2 h-8 w-8 sm:h-10 sm:w-10" />
+                    </div>
+                  </Carousel>
+                </div>
+              
+                {/* Text */}
+                <div className="w-full lg:w-1/3 mb-6 lg:mb-0 hidden sm:block text-center lg:text-left">
+                  <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Was kannst du erwarten?</h2>
+                  <p className="text-base sm:text-lg mx-auto lg:mx-0 max-w-prose">
+                    In Kandoran warten viele Vorteile und unvergessliche Abenteuer auf dich. Entdecke einen Auszug der Sachen, die auf dich warten.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
